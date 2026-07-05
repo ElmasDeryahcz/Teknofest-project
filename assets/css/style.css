@@ -802,14 +802,16 @@ aside .mobile-menu .cta {
 .section-divider .search-area {
   display: flex;
   position: absolute;
-  bottom: -100px;
+  bottom: -200px;
   left: 50px;
   width: 80%;
+  margin-top: 70px;
 }
 @media (min-width: 576px) {
   .section-divider .search-area {
+    margin-top: 70px;
     left: 50px;
-    bottom: -350px;
+    bottom: -250px;
   }
 }
 @media (min-width: 768px) {
@@ -1222,30 +1224,6 @@ aside .mobile-menu .cta {
 }
 #gallery {
   margin-bottom: 200px;
-}
-#gallery .button {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-#gallery .button .gallery-btn-left,
-#gallery .button .gallery-btn-right {
-  background-color: #cf1720;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-#gallery .button .gallery-btn-left:hover,
-#gallery .button .gallery-btn-right:hover {
-  background-color: #0E137A;
-  transform: scale(1.1);
 }
 #gallery .carousel-items {
   height: 80vh;
