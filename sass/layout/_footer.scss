@@ -1,0 +1,297 @@
+
+footer {
+    margin-top: 150px;
+    padding-bottom: 50px;
+    background-color:#080917;
+    color: white;
+    position: relative;
+
+
+
+    .absolute-logo {
+        position: absolute;
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 350px;
+        z-index: 1;
+    }
+
+//    .contact{
+//     display: grid;
+//      grid-template-columns: repeat(auto-fit , minmax(350px  , 1fr));
+//     background-color: white ;
+//     gap: 30px;
+
+//     .inner-contact {
+//         display: flex;
+//         padding: 25px 0;
+//         color: #080917;
+        
+
+//         i {
+//             color: black;
+//         }
+//     }
+
+//    }
+
+    .inner-footer {
+        padding-top: 150px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit , minmax(250px  , 1fr));
+        gap: 25px;
+        .footer-box{
+            
+            img {
+                width: 170px;
+            }
+            
+            .footer-icons {
+                display: flex;
+                
+
+                .fa-brands {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25px;
+                height: 25px;
+                transition: 0.2s;
+                
+                
+                &:hover {
+                  background: $mainColor;
+                  border-radius: 3px;
+              }
+            }
+            }
+
+            
+        }
+       
+    }
+
+    .footer-hr {
+    width: 77%;
+    margin-top: 35px;
+    transform: translateX(15%);
+    background-color: white;
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    color: white;
+    margin-bottom: 100px;
+    @include media-up(md) {
+        margin-bottom: 0px;
+    }
+    
+}
+
+}
+
+
+
+.fixed-footer {
+
+    @include media-up(md) {
+        display: none;
+    }
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    height: 80px;
+    z-index: 30000;
+
+    .relative-area {
+        position: relative;
+        width: 100%;
+        height: 100%;
+         
+
+        .img-absolute-footer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .absolute-footer {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            .flex-area {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 6px;
+
+                .col-buttons-left {
+                    padding-top: 20px !important;
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    max-width: 43%;
+
+                    .button-link-item {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 7px;
+                        flex: 1;
+                        position: relative;
+                        
+                        height: 53px !important;
+
+                        &:hover {
+                           .icon {
+                            color: $mainColor
+                           }
+                           .text {
+                            color: $mainColor
+                           }
+                        }
+                        .icon {
+                            font-size: 24px !important;
+                            color: $thirdColor;
+                            line-height: 1;
+                            display: inline-flex;
+                           
+                            
+                            i {
+                                text-rendering: auto;
+                                font-style: normal;
+                                font-variant: normal;
+                                line-height: 1;
+                                display: inline-block;
+
+                            }
+                        }
+
+                        .text {
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            font-size: 11px;
+                            font-weight: 500;
+                            line-height: 1.2;
+                            max-width: 8ch;
+                            text-align: center;
+                            color: $thirdColor;
+                        }
+                    }
+                }
+
+                .mid-search-wrapper {
+                    background-color: $thirdColor;
+                    width: 85px;
+                    height: 85px;
+                    display: flex;
+                    border: 5px solid #fff;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    margin-top: -30px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+                    .search-open-button {
+                        color: #fff;
+                        border: none;
+                        font-size: 30px;
+                        margin: 0;
+                        width: 45px;
+                        height: 45px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                        transition: 0.4s;
+                        border-radius: 12px;
+
+                       
+
+                    }
+                }
+
+                .col-buttons-right {
+                    padding-top: 20px;
+                    height: 100%;
+                    flex: 1;
+                    display: flex;
+                    align-items: start;
+                    max-width: 43%;
+
+                    
+
+                     .button-link-item {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 7px;
+                        flex: 1;
+                        position: relative;
+                        
+                        height: 53px !important;
+
+                       
+                        &:hover {
+                           .icon {
+                            color: $mainColor
+                           }
+                           .text {
+                            color: $mainColor
+                           }
+                        }
+                        
+                        .icon {
+                            font-size: 24px !important;
+                            color: $thirdColor;
+                            line-height: 1;
+                            display: inline-flex;
+                            
+                           
+                            
+                            i {
+                                text-rendering: auto;
+                                font-style: normal;
+                                font-variant: normal;
+                                line-height: 1;
+                                display: inline-block;
+                            }
+                        }
+
+                        .text {
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            font-size: 11px;
+                            font-weight: 500;
+                            line-height: 1.2;
+                            max-width: 8ch;
+                            text-align: center;
+                            color: $thirdColor;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+

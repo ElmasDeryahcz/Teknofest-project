@@ -1,0 +1,152 @@
+
+
+
+
+.products {
+    position: relative;
+    padding-top: 150px;
+
+    .all-products {
+       margin: 50px 0px;
+
+        .swiper-slide {
+
+            .card {
+
+                 margin-top: 30px;
+                background-color: white;
+                box-shadow: 2px 2px 10px #5d5d5e95;
+                
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                     scale: 1.07;
+
+                      img {
+                        scale: 1.07;
+                    }
+                }
+
+                .image {
+                     width: 100%;
+                    height: 250px;
+                    overflow: hidden;
+
+                    img {
+                         width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: 0.3s;
+                    }
+                }
+
+               
+
+                .info {
+                        padding:10px 30px;
+
+                    .card-header {
+
+                         display: flex;
+                    padding-top: 10px;
+                    justify-content: space-between;
+                    align-items: center;
+
+                        .date{
+                             display: flex;
+                        color: $thirdColor;
+                        font-weight: semibold;
+                        font-size: 18px;
+
+                        }
+
+                        .category {
+
+                        display: flex;
+                        background-color: $thirdColor;
+                        width: fit-content;
+                        color: white;
+                        padding: 5px 15px;
+
+                        }
+
+                    }
+
+                    .card-desc {
+
+                        h3 {
+                             color: black;
+                            padding-top: 20px;
+                            font-weight: bold;
+                            font-size: 17px;
+                             overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: block;
+                            max-width: 100%;
+                            padding-top: 5px;
+                            white-space: nowrap;
+
+                        }
+
+                        p {
+
+                             overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: block;
+                            max-width: 100%;
+                            padding-top: 5px;
+                            white-space: nowrap;
+                            margin-bottom: 15px;
+
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    .buttons {
+      display: flex;
+      margin: auto;
+      width: fit-content;
+      .swiper-button-left {
+        background-color: $mainColor;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: 0.3s;
+        margin: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $thirdColor;
+        }
+
+      }
+      .swiper-button-right  {
+         background-color: $mainColor;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: 0.3s;
+        margin: 5px;
+        cursor: pointer;
+
+         &:hover {
+            background-color: $thirdColor;
+        }
+
+      }
+    }
+}

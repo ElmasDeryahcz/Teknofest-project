@@ -1,0 +1,38 @@
+
+@mixin container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @each $breakpoint , $width in $container-widths {
+        @media (min-width: map-get($breakpoints , $breakpoint)) {
+            max-width: $width;
+        }
+    }
+}
+
+@mixin media-up($breakpoint) {
+    @media (min-width:map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+@mixin flexbox($justify-content , $align-items , $flex-direction) {
+    display: flex ;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $flex-direction;
+
+}
+
+
+
+@mixin bg-img($bg-img) {
+    background-image: $bg-img;
+    background-color: #a3a04922;
+    background-position: center ;
+    background-repeat: no-repeat ;
+    background-size: cover;
+}

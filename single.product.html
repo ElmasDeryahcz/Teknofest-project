@@ -1,0 +1,1339 @@
+    <!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEKNOFEST | Etkinlikler</title>
+<link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cairo:wght@200..1000&family=Homemade+Apple&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Quicksand:wght@300..700&family=Story+Script&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+     <link rel="icon" href="./assets/images/teknofest-logo-Photoroom.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> -->
+     <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"
+/>
+  <link href="/src/style.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background: linear-gradient(135deg,#ccc,#eee);
+  font-family: 'Segoe UI', sans-serif;
+  color:rgb(255, 255, 255);
+  overflow-x:hidden;
+}
+
+/* WRAPPER */
+.timeline-wrapper{
+  flex-grow:1;
+  position:relative;
+  width:900px;
+  margin:150px auto;
+  padding-left:120px;
+}
+
+/* ANA SABİT ÇİZGİ */
+.timeline-wrapper::before{
+  content:"";
+  position:absolute;
+  left:10%;
+  top:350px;
+  width:4px;
+  height:92%;
+  background:rgba(6, 6, 215, 0.08);
+}
+
+/* DOLAN PROGRESS ÇİZGİ */
+.timeline-progress{
+  position:absolute;
+  width: 40px;
+  left:10%;
+  top:350px;
+  flex-shrink: 0;
+  width:4px;
+  height:0;
+  background:linear-gradient(to bottom,#01438f,#cf1720);
+  z-index:1;
+}
+
+/* ITEM */
+.timeline-item{
+  position:relative;
+  margin-bottom:140px;
+
+}
+
+/* DOT */
+.timeline-dot{
+  position:absolute;
+    top: 350px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  margin-left: 0;
+  background:#3b3d4000;
+  border:3px solid #cf1720;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-size:14px;
+  z-index:2;
+  transform: translateX(-92%);
+}
+
+/* AKTİF DOT */
+.timeline-dot.active{
+  background:linear-gradient(135deg,#cf1720,#01438f);
+  border-color:#01438f;
+  transition: 0.3s;
+  box-shadow:0 0 30px #01 438f;
+  transform:scale(1.15);
+}
+
+/* CONTENT */
+.timeline-content{
+  margin-left:140px;
+  padding:30px;
+  border-radius:20px;
+  color: #8d8b8b;
+  font-weight: lighter;
+  background:rgba(254, 254, 254, 0.429);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.4s ease;
+}
+
+.timeline-content:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 50px rgba(125, 125, 130, 0.3);
+}
+
+.timeline-content h3{
+  margin-bottom:10px;
+  font-size:24px;
+  background:linear-gradient(to right,#cf1720,#01438f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .timeline-wrapper{
+    width:95%;
+    padding-left:100px;
+  }
+  .timeline-content{
+    margin-left:120px;
+  }
+}
+
+
+
+  @media(max-width:600px){
+
+    .timeline-wrapper{
+      /* flex-direction: column; */
+      width:85%;
+      /* padding-left:0; */
+    
+      transform: translateX(0%); 
+     
+      /* margin:50px auto;
+    
+      
+
+  
+
+    .line-progress{
+      /* width:40px;
+      margin:0 auto;
+      position: relative;
+      
+      height:100%; */
+      
+    }
+
+    .timeline-wrapper::before{
+  content:"";
+  position:absolute;
+
+
+  height:91%;
+  background:rgba(6, 6, 215, 0.08);
+}
+
+ 
+
+    .timeline-dot{
+      width:50px;
+      height:50px;
+
+      font-size:14px;
+      margin-left: -30px;
+      transform:translateX(-100%);
+      z-index: 2;
+    }
+
+    .timeline-content-area{
+      margin-top:20px;
+    }
+
+    .timeline-content{
+      margin-left:0;
+      padding:20px;
+      border-radius:15px;
+    }
+
+    .timeline-item{
+      margin-bottom:100px;
+    }
+  }
+
+
+/* 
+@media(max-width:369px){
+
+  .timeline-wrapper{
+    flex-direction: column;
+    width:85%;
+
+
+
+  }
+
+ 
+
+  .line-progress{
+
+
+    position: relative;
+    left: 100%;
+    
+    height:100%;
+  }
+
+  .timeline-dot{
+    width:50px;
+    height:50px;
+    position: absolute;
+    font-size:14px;
+
+    
+  }
+
+  .timeline-content-area{
+    margin-top:20px;
+  }
+
+  .timeline-content{
+    margin-left:0;
+    padding:20px;
+    border-radius:15px;
+  }
+
+  .timeline-item{
+    margin-bottom:100px;
+  }
+} */
+
+</style>
+
+
+<!-- <style>
+    /* Genel Stil */
+.timeline-wrapper{
+  width:900px;
+  margin:150px auto;
+  position:relative;
+  display:flex;
+}
+
+/* Sol çizgi alanı */
+.timeline-line{
+  position:relative;
+  width:100px;
+  display:flex;
+  justify-content:center;
+}
+
+/* Sabit çizgi */
+.line-base{
+  position:absolute;
+  width:4px;
+  height:100%;
+  background:rgba(255,255,255,0.08);
+}
+
+/* Progress çizgi */
+.line-progress{
+  position:absolute;
+  width:4px;
+  height:0;
+  background:linear-gradient(to bottom,#6366f1,#ec4899);
+  z-index:2;
+}
+
+/* Sağ içerik */
+.timeline-content-area{
+  flex:1;
+}
+
+/* Timeline item */
+.timeline-item{
+  position:relative;
+  margin-bottom:140px;
+}
+
+/* Nokta */
+.timeline-dot{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:#1e293b;
+  border:3px solid #6366f1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  transition:0.4s ease;
+  z-index:3;
+}
+
+.timeline-dot.active{
+  background:linear-gradient(135deg,#6366f1,#ec4899);
+  border-color:#ec4899;
+  box-shadow:0 0 30px #ec4899;
+  transform:translateX(-50%) scale(1.15);
+}
+
+/* İçerik kutusu */
+.timeline-content{
+  margin-left:40px;
+  padding:30px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.4s ease;
+}
+
+.timeline-content:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 50px rgba(99,102,241,0.3);
+}
+
+.timeline-content h3{
+  margin-bottom:10px;
+  font-size:24px;
+  background:linear-gradient(to right,#6366f1,#ec4899);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* RESPONSIVE: TABLET & MOBILE */
+@media(max-width:900px){
+  .timeline-wrapper{
+    width:95%;
+  }
+  .timeline-content{
+    margin-left:0;
+    padding:20px;
+  }
+}
+
+/* 🔹 TAM MOBİL: TEK SÜTUN */
+@media(max-width:600px){
+
+  .timeline-wrapper{
+    flex-direction:column;
+    margin:50px auto;
+    padding:0 20px;
+  }
+
+  .timeline-line{
+    width:40px;
+    margin:0 auto;
+    height:auto;
+  }
+
+  .line-base, .line-progress{
+    left:50%;
+    transform:translateX(-50%);
+    width:4px;
+  }
+
+  .timeline-dot{
+    width:50px;
+    height:50px;
+    font-size:14px;
+    left:50%;
+    transform:translateX(-50%);
+    margin-bottom:20px;
+  }
+
+  .timeline-item{
+    margin-bottom:80px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .timeline-content-area{
+    width:100%;
+  }
+
+  .timeline-content{
+    width:100%;
+    margin-left:0;
+    padding:15px;
+    border-radius:15px;
+  }
+}
+</style> -->
+
+
+
+
+</head>
+<body>
+
+
+
+    <header id="navbar" class="header">
+            <nav class="container">
+                <!-- <div class="logo">
+                    <a href="/">
+                        <img width="80" src="./assets/images/teknofest-logo-Photoroom.png" alt="">
+                    </a>
+                </div> -->
+                <!-- <div class="menu">
+                    <ul>
+                        <li><a href="/">Anasayfa</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#duyurular">Duyurular</a></li>
+                        <li><a href="">Galeri</a></li>
+                        <li><a href="">İletişim</a></li>
+                    </ul>
+                </div> -->
+                <!-- <div class="icons">
+                    <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div> -->
+
+                  <!-- <div class="modal-search" id="modal_serach">
+                            <div class="container">
+                                <div class="relative-container">
+                                    <div class="absolute-modal-serach-close-button" id="modal-search-close-button">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </div>
+                                    <div class="serach-modal-logo">
+                                        <img src="assets/images/teknofest-footer-3.png" alt="">
+                                    </div>
+                                    <form action="">
+                                        <div class="searchable-input-area">
+                                        <input name="search" id="search" type="text" maxlength="150" class="searchable-input btn js-btn-modal is-open" data-modal="js-modalsearch" placeholder="Sorularınızı burada" autocomplete="off" required="" minlength="3">
+                                            <button type="submit" class="input-icon-wrapper">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                                Ara 
+                                            </button>
+                                            <div class="searchable-input-footer">
+                                                <a href="#" target="_blank" title="Haberler" class="searchable-input-footer-link">Haberler</a>
+                                                <a href="#" target="_blank" title="Haberler" class="searchable-input-footer-link">Duyurular</a>
+                                                <a href="#" target="_blank" title="Haberler" class="searchable-input-footer-link">Rehberler </a>
+                                                <a href="#" target="_blank" title="Haberler" class="searchable-input-footer-link">Bilgi İşlemleri</a>
+                                                <a href="#" target="_blank" title="Haberler" class="searchable-input-footer-link">Etkinlikler</a>
+                                                <a href="#" target="_blank" title="Haberler" class="searchable-input-footer-link">Yarışmalar</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> -->
+    
+                <i class="fa-solid fa-bars mobile-nav-icon" style="color: white;" id="mobile_nav_icon"></i>
+                <span class="menu">MENÜ</span>
+
+                <div class="fixed-header-logo">
+                    <img src="assets/images/teknofest-footer-3.png" alt="">
+                </div>
+
+                <ul class="button-group">
+                    <li>
+                        <div class="search-open-button " id="search_open_button" >
+                          <i class="fa-solid fa-magnifying-glass">
+                          </i>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        
+        
+    
+        <aside id="aside">
+            <div class="mobile-menu">
+                <div class="imagelar">
+                    <img class="logo" src="assets/images/tekno logo-Photoroom.png" alt="">
+                </div>
+                 
+                    <ul class="p-0">
+                      <!-- <li>  <a href="/index.html">Anasayfa</a></li>
+                      <li>  <a href="#about">Hakkımızda</a></li>
+                      <li>  <a href="#duyurular">Duyurular</a></li>
+                      <li>  <a href="">Galeri</a></li>
+                      <li>  <a href="">İletişim</a></li> -->
+                       <a href="/">
+                        <li>Anasayfa</li>
+                       </a>
+                       <a href="#about">
+                        <li>Hakkımızda</li>
+                       </a>
+                        <a href="#duyurular">
+                            <li>Duyurular</li>
+                        </a>
+                        <a href="#gallery">
+                            <li>Galeri</li>
+                        </a>
+                        <a href="">
+                            <li>İletişim</li>
+                        </a>
+                    </ul>
+    
+                    <form autocomplete="off" action="">
+                       <div class="">
+                            <input id="input-search" type="text" placeholder="Search" value="" >
+                           </div>
+                        
+                    </form>
+                
+               <div class="icons">
+                 <div class="icon">
+                     <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+                     <a href=""><i class="fa-brands fa-instagram"></i></a>
+                     <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                     <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                 </div>
+               </div>
+    
+                <div class="cta">
+                    <a href="#" class="btn-primary">Bize Ulaşın</a>
+                    <a href="#" class="btn-secondary">Daha Fazla</a>
+                </div>
+    
+            </div>
+        </aside>
+
+
+        <div class="page-header">
+           <div class="container">
+             <h1>TEKNOFEST Etkinlikleri</h1>
+          <div class="d-flex justify-start">
+              <a href="index.html" class="para-1">Anasayfa   </a>
+              <p> / </p>
+              <a href="single.product.html" class="para-2">Etkinlikler</a>
+          </div>
+           </div>
+        </div>
+
+<!-- 
+        <div class="page-content">
+          <div class="container inner-content">
+              <div class="left-section">
+                <div class="years">2025</div>
+                <div class="dot"></div>
+              
+              </div>
+              <div class="right-section">
+               <div class="page-card bg-white">
+                 <h3 class="card-title border-b-2 border-gray-300">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                 <div class="card-content">
+                 <p class="fw-light">2025 yılında TEKNOFEST, tarihinde <strong>bir ilke imza atarak </strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC), Mavi Vatan ve İstanbul olmak üzere, biri yurt dışında gerçekleştirilen toplam üç farklı festivalle teknoloji tutkunlarını bir araya getirdi.
+                    <br>
+                    <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025 </strong>tarihleri arasında düzenlenen festival, <strong>225.000 ziyaretçiyi</strong> ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.
+                </p>
+<br>
+                <p class="fw-lighter"><strong>İstanbul Tersanesi Komutanlığı’nda 28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan</strong>, denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong> 175.000 </strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu. 24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen <strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi</strong> , TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve <strong>Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın</strong>r selamlamasıyla devam eden geçit, <strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+<br>
+                <p class="fw-lighter">2025’in final durağı olan <strong>TEKNOFEST İstanbul, İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025</strong> tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride</strong> teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong> verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+<br>
+                <p class="fw-lighter">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında <strong>13 yeni yarışma kategorisi</strong> eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+
+                 </div>
+               </div>
+              </div>
+          </div>
+          <div class="container inner-content mt-5">
+              <div class="left-section">
+                <div class="years">2024</div>
+                <div class="dot"></div>
+              </div>
+              <div class="right-section">
+               <div class="page-card bg-white">
+                 <h3 class="card-title border-b-2 border-gray-300">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                 <div class="card-content">
+                 <p class="fw-light">2025 yılında TEKNOFEST, tarihinde <strong>bir ilke imza atarak </strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC), Mavi Vatan ve İstanbul olmak üzere, biri yurt dışında gerçekleştirilen toplam üç farklı festivalle teknoloji tutkunlarını bir araya getirdi.
+                    <br>
+                    <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025 </strong>tarihleri arasında düzenlenen festival, <strong>225.000 ziyaretçiyi</strong> ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.
+                </p>
+<br>
+                <p class="fw-lighter"><strong>İstanbul Tersanesi Komutanlığı’nda 28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan</strong>, denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong> 175.000 </strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu. 24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen <strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi</strong> , TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve <strong>Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın</strong>r selamlamasıyla devam eden geçit, <strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+<br>
+                <p class="fw-lighter">2025’in final durağı olan <strong>TEKNOFEST İstanbul, İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025</strong> tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride</strong> teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong> verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+<br>
+                <p class="fw-lighter">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında <strong>13 yeni yarışma kategorisi</strong> eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+
+                 </div>
+               </div>
+              </div>
+          </div>
+          <div class="container inner-content mt-5">
+              <div class="left-section">
+                <div class="years">2023</div>
+                <div class="dot"></div>
+              </div>
+              <div class="right-section">
+               <div class="page-card bg-white">
+                 <h3 class="card-title border-b-2 border-gray-300">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                 <div class="card-content">
+                 <p class="fw-light">2025 yılında TEKNOFEST, tarihinde <strong>bir ilke imza atarak </strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC), Mavi Vatan ve İstanbul olmak üzere, biri yurt dışında gerçekleştirilen toplam üç farklı festivalle teknoloji tutkunlarını bir araya getirdi.
+                    <br>
+                    <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025 </strong>tarihleri arasında düzenlenen festival, <strong>225.000 ziyaretçiyi</strong> ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.
+                </p>
+<br>
+                <p class="fw-lighter"><strong>İstanbul Tersanesi Komutanlığı’nda 28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan</strong>, denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong> 175.000 </strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu. 24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen <strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi</strong> , TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve <strong>Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın</strong>r selamlamasıyla devam eden geçit, <strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+<br>
+                <p class="fw-lighter">2025’in final durağı olan <strong>TEKNOFEST İstanbul, İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025</strong> tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride</strong> teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong> verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+<br>
+                <p class="fw-lighter">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında <strong>13 yeni yarışma kategorisi</strong> eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+
+                 </div>
+               </div>
+              </div>
+          </div>
+          <div class="container inner-content mt-5">
+              <div class="left-section">
+                <div class="years">2022</div>
+                <div class="dot"></div>
+              </div>
+              <div class="right-section">
+               <div class="page-card bg-white">
+                 <h3 class="card-title border-b-2 border-gray-300">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                 <div class="card-content">
+                 <p class="fw-light">2025 yılında TEKNOFEST, tarihinde <strong>bir ilke imza atarak </strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC), Mavi Vatan ve İstanbul olmak üzere, biri yurt dışında gerçekleştirilen toplam üç farklı festivalle teknoloji tutkunlarını bir araya getirdi.
+                    <br>
+                    <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025 </strong>tarihleri arasında düzenlenen festival, <strong>225.000 ziyaretçiyi</strong> ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.
+                </p>
+<br>
+                <p class="fw-lighter"><strong>İstanbul Tersanesi Komutanlığı’nda 28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan</strong>, denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong> 175.000 </strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu. 24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen <strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi</strong> , TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve <strong>Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın</strong>r selamlamasıyla devam eden geçit, <strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+<br>
+                <p class="fw-lighter">2025’in final durağı olan <strong>TEKNOFEST İstanbul, İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025</strong> tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride</strong> teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong> verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+<br>
+                <p class="fw-lighter">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında <strong>13 yeni yarışma kategorisi</strong> eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+
+                 </div>
+               </div>
+              </div>
+          </div>
+          <div class="container inner-content mt-5">
+              <div class="left-section">
+                <div class="years">2021</div>
+                <div class="dot"></div>
+              </div>
+              <div class="right-section">
+               <div class="page-card bg-white">
+                 <h3 class="card-title border-b-2 border-gray-300">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                 <div class="card-content">
+                 <p class="fw-light">2025 yılında TEKNOFEST, tarihinde <strong>bir ilke imza atarak </strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC), Mavi Vatan ve İstanbul olmak üzere, biri yurt dışında gerçekleştirilen toplam üç farklı festivalle teknoloji tutkunlarını bir araya getirdi.
+                    <br>
+                    <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025 </strong>tarihleri arasında düzenlenen festival, <strong>225.000 ziyaretçiyi</strong> ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.
+                </p>
+<br>
+                <p class="fw-lighter"><strong>İstanbul Tersanesi Komutanlığı’nda 28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan</strong>, denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong> 175.000 </strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu. 24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen <strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi</strong> , TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve <strong>Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın</strong>r selamlamasıyla devam eden geçit, <strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+<br>
+                <p class="fw-lighter">2025’in final durağı olan <strong>TEKNOFEST İstanbul, İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025</strong> tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride</strong> teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong> verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+<br>
+                <p class="fw-lighter">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında <strong>13 yeni yarışma kategorisi</strong> eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+
+                 </div>
+               </div>
+              </div>
+          </div>
+          <div class="container inner-content mt-5">
+              <div class="left-section">
+                <div class="years">2020</div>
+                <div class="dot"></div>
+              </div>
+              <div class="right-section">
+               <div class="page-card bg-white">
+                 <h3 class="card-title border-b-2 border-gray-300">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                 <div class="card-content">
+                 <p class="fw-light">2025 yılında TEKNOFEST, tarihinde <strong>bir ilke imza atarak </strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC), Mavi Vatan ve İstanbul olmak üzere, biri yurt dışında gerçekleştirilen toplam üç farklı festivalle teknoloji tutkunlarını bir araya getirdi.
+                    <br>
+                    <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025 </strong>tarihleri arasında düzenlenen festival, <strong>225.000 ziyaretçiyi</strong> ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.
+                </p>
+<br>
+                <p class="fw-lighter"><strong>İstanbul Tersanesi Komutanlığı’nda 28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan</strong>, denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong> 175.000 </strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu. 24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen <strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi</strong> , TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve <strong>Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın</strong>r selamlamasıyla devam eden geçit, <strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+<br>
+                <p class="fw-lighter">2025’in final durağı olan <strong>TEKNOFEST İstanbul, İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025</strong> tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride</strong> teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong> verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+<br>
+                <p class="fw-lighter">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında <strong>13 yeni yarışma kategorisi</strong> eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+
+                 </div>
+               </div>
+              </div>
+          </div>
+          <div class="container inner-content mt-5">
+              <div class="left-section">
+                <div class="years">2019</div>
+                <div class="dot"></div>
+              </div>
+              <div class="right-section">
+               <div class="page-card bg-white">
+                 <h3 class="card-title border-b-2 border-gray-300">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                 <div class="card-content">
+                 <p class="fw-light">2025 yılında TEKNOFEST, tarihinde <strong>bir ilke imza atarak </strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC), Mavi Vatan ve İstanbul olmak üzere, biri yurt dışında gerçekleştirilen toplam üç farklı festivalle teknoloji tutkunlarını bir araya getirdi.
+                    <br>
+                    <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025 </strong>tarihleri arasında düzenlenen festival, <strong>225.000 ziyaretçiyi</strong> ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.
+                </p>
+<br>
+                <p class="fw-lighter"><strong>İstanbul Tersanesi Komutanlığı’nda 28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan</strong>, denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong> 175.000 </strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu. 24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen <strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi</strong> , TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve <strong>Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın</strong>r selamlamasıyla devam eden geçit, <strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+<br>
+                <p class="fw-lighter">2025’in final durağı olan <strong>TEKNOFEST İstanbul, İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025</strong> tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride</strong> teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong> verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+<br>
+                <p class="fw-lighter">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında <strong>13 yeni yarışma kategorisi</strong> eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+
+                 </div>
+               </div>
+              </div>
+          </div>
+          <div class="container inner-content mt-5">
+              <div class="left-section">
+                <div class="years">2018</div>
+                <div  class="dot"></div>
+              </div>
+              <div class="right-section">
+               <div class="page-card bg-white">
+                 <h3 class="card-title border-b-2 border-gray-300">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                 <div class="card-content">
+                 <p class="fw-light">2025 yılında TEKNOFEST, tarihinde <strong>bir ilke imza atarak </strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC), Mavi Vatan ve İstanbul olmak üzere, biri yurt dışında gerçekleştirilen toplam üç farklı festivalle teknoloji tutkunlarını bir araya getirdi.
+                    <br>
+                    <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025 </strong>tarihleri arasında düzenlenen festival, <strong>225.000 ziyaretçiyi</strong> ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.
+                </p>
+<br>
+                <p class="fw-lighter"><strong>İstanbul Tersanesi Komutanlığı’nda 28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan</strong>, denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong> 175.000 </strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu. 24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen <strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi</strong> , TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve <strong>Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın</strong>r selamlamasıyla devam eden geçit, <strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+<br>
+                <p class="fw-lighter">2025’in final durağı olan <strong>TEKNOFEST İstanbul, İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025</strong> tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride</strong> teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong> verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+<br>
+                <p class="fw-lighter">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında <strong>13 yeni yarışma kategorisi</strong> eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+
+                 </div>
+               </div>
+              </div>
+          </div>
+        </div> -->
+
+
+        <!-- <section class="history-section">
+    <div class="history-container">
+        <div class="timeline">
+            
+            <div class="timeline-year-group">
+                <div class="timeline-year-container">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-items">
+                    
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-dot-mobile"></div>
+                        <h3 class="timeline-card-title">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+                        <div class="timeline-card-content">
+                            <p style="text-align:justify">2025 yılında TEKNOFEST, tarihinde<strong> bir ilke imza atarak&nbsp;</strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC),&nbsp;Mavi Vatan&nbsp;ve&nbsp;İstanbul&nbsp;olmak üzere,&nbsp;biri yurt dışında gerçekleştirilen <strong>toplam üç farklı festivalle</strong>&nbsp;teknoloji tutkunlarını bir araya getirdi.<br>
+<br>
+<strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025</strong> tarihleri arasında düzenlenen festival,<strong> 225.000 ziyaretçiyi </strong>ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.</p>
+
+<p style="text-align:justify"><strong>İstanbul Tersanesi Komutanlığı’nda</strong> <strong>28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan, </strong>denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong>175.000</strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu.&nbsp;24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen&nbsp;<strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi, </strong>TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve<strong> Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın </strong>selamlamasıyla devam eden geçit,<strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+
+<p style="text-align:justify">2025’in final durağı olan <strong>TEKNOFEST İstanbul,</strong> <strong>İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025 </strong>tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride </strong>teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong>verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+
+<p style="text-align:justify">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında<strong> 13 yeni yarışma kategorisi </strong>eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="timeline-year-group">
+                <div class="timeline-year-container">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-items">
+                    
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-dot-mobile"></div>
+                        <h3 class="timeline-card-title">2024 - TEKNOFEST AKDENİZ</h3>
+                        <div class="timeline-card-content">
+                            <p style="text-align:justify">TEKNOFEST, <strong>7. yılında </strong>Türkiye’nin farklı bölgelerinde büyük bir heyecanla gerçekleştirildi.&nbsp;TEKNOFEST Akdeniz 2024, <strong>5-8 Eylül tarihlerinde Antalya Anfaş Uluslararası Fuar ve Kongre Merkezi’nde</strong> düzenlenen&nbsp;<strong>TEKNOFEST Teknoloji Yarışmaları</strong>&nbsp;ile dikkat çekti. <strong>50 farklı kategorideki </strong>yarışmalara 200.000’den fazla takım ve 800.000’den fazla genç başvurarak geleceğin teknoloji liderleri olma yolunda adım attı.</p>
+
+<p style="text-align:justify">Ardından, <strong>2-6 Ekim 2024 </strong>tarihlerinde <strong>Adana Şakirpaşa Havalimanı’nda</strong> düzenlenen&nbsp;<strong>TEKNOFEST Adana,</strong> <strong>1.100.000 ziyaretçi </strong>ile büyük coşkuya sahne oldu. <strong>50 ana kategori </strong>ve 128 alt kategorideki yarışmalara 100 ülkeden <strong>1.650.000’den</strong> fazla genç başvurdu. Festivalde&nbsp;Anka III&nbsp;ve&nbsp;TUSAŞ Bayraktar TB3&nbsp;halka açık ilk uçuşlarını gerçekleştirdi. Ayrıca ziyaretçiler&nbsp;Köklerden Geleceğe: TEKNOFEST Dijital Evren, TEKNOFEST Zaman Tüneli, Hareketli Kara Araçları Parkuru, Çocuk Sahnesi, Türkiye’nin İnsanlı İlk Uzay Misyonu Çadırı,&nbsp;TEKNOFEST Şampiyonlar Ligi,&nbsp;Zaferin İzinde: Çanakkale Deneyim Alanı&nbsp;ve&nbsp;Röportaj Alanı&nbsp;gibi özel deneyim alanlarını keşfetti.</p>
+
+<p style="text-align:justify">2024 TEKNOFEST, 126 paydaş kurum iş birliğiyle düzenlendi; <strong>30 milyon TL’den fazla ödül ve 55 milyon TL’den fazla malzeme desteği </strong>sunuldu. 81 ilden ve 100 ülkeden<strong> 1.650.000’den fazla yarışmacı</strong> başvurdu. Festival, gençleri teknolojinin evrensel coşkusuyla buluşturarak Türkiye’nin millî teknoloji hamlesini bir adım daha ileri taşıdı.</p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="timeline-year-group">
+                <div class="timeline-year-container">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-items">
+                    
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-dot-mobile"></div>
+                        <h3 class="timeline-card-title">2023 – TEKNOFEST İSTANBUL, ANKARA VE İZMİR</h3>
+                        <div class="timeline-card-content">
+                            <p style="text-align:justify"><strong>Cumhuriyetimizin 100. yılında </strong>TEKNOFEST, <strong>İstanbul, Ankara ve İzmir’de</strong> gerçekleştirildi ve toplamda <strong>4.590.000 ziyaretçi</strong> ile rekor kırdı. Festival, 2 düzenleyici kuruluş ve 123 paydaş kurum iş birliğiyle <strong>44 farklı teknoloji yarışmasına</strong> ev sahipliği yaptı. 81 ilden ve 100 ülkeden <strong>1.000.000’dan fazla yarışmacı</strong> başvurdu; toplamda 20 milyon TL’den fazla ödül ve malzeme desteği dağıtıldı.</p>
+
+                        <p style="text-align:justify">İlk durak&nbsp;<strong>İstanbul&nbsp;</strong>oldu;<strong> 27 Nisan – 1 Mayıs 2023</strong> tarihlerinde <strong>Atatürk Havalimanı’nda</strong> gerçekleştirilen festivalde&nbsp;<strong>KIZILELMA&nbsp;halka açık ilk uçuşunu</strong> yaptı ve SOLOTÜRK ile kol uçuşu gerçekleştirerek <strong>bir ilke imza attı. </strong>Dünyaca ünlü akrobasi ekipleri&nbsp;UAE Fursan Al Emarat ve&nbsp;Royal Morocco Green March, Türk pilotlarla birlikte gösteriler yaptı; Türk Yıldızları ve Fursan Al Emarat’ın pasaj geçişi İstanbul’da bir ilk oldu. İstanbul etkinliklerinde ayrıca, görkemli açılış seremonisinin ardından <strong>Cumhurbaşkanı Recep Tayyip Erdoğan, Azerbaycan Cumhurbaşkanı İlham Aliyev ve Libya Başbakanı Abdulhamid Dibeybe </strong>ağırlandı. Uluslararası Uzay İstasyonu’na gidecek <strong>Alper Gezeravcı ve Tuva Cihangir Atasever’e</strong> Türkiye’nin gücünü ve kararlılığını simgeleyen bayrağı teslim etti. TEKNOFEST İstanbul,<strong> 2.547.000</strong> teknoloji tutkununu bir araya getirdi.</p>
+
+                        <p style="text-align:justify">İkinci durak&nbsp;<strong>Ankara</strong>&nbsp;oldu; <strong>30 Ağustos – 3 Eylül 2023 </strong>tarihlerinde <strong>Etimesgut Havalimanı’nda </strong>gerçekleştirilen festivalde&nbsp;DeltaV SORS Sonda Roketi&nbsp;sergilendi ve <strong>TEKNOFEST Girişim Yarışması</strong> ilk kez Ankara’da düzenlendi. Festival kapsamında&nbsp;Mahzar Alanson konseri&nbsp;gerçekleştirildi. Ankara, <strong>943.000</strong> teknoloji tutkununu TEKNOFEST’te bir araya getirdi.<br>
+                        <br>
+                        Üçüncü durak<strong>&nbsp;İzmir&nbsp;</strong>oldu; <strong>27 Eylül – 1 Ekim 2023</strong> tarihlerinde <strong>Çiğli Havalimanı’nda d</strong>üzenlenen TEKNOFEST’te BMC TULGA SUV ilk defa sergilendi. <strong>DENEYAP Makeathon ve Fikir Maratonu </strong>yarışmaları<strong> ilk kez</strong> gerçekleştirildi ve TEKNOFEST Girişim Yarışması İzmir’de düzenlendi. İzmir, <strong>1.100.000</strong> teknoloji tutkununu TEKNOFEST’te bir araya getirdi.</p>
+
+                        <p style="text-align:justify">2023 yılı boyunca <strong>“Bir Çocuk Gelsin Bir Uçağa Dokunsun”</strong> projesi kapsamında toplam 100.000’den fazla öğrenci etkinlik alanlarını ziyaret ederek TEKNOFEST ruhunu deneyimledi.</p>
+                        </div>
+                    </div>
+              
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="timeline-year-group">
+                <div class="timeline-year-container">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-items">
+                    
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-dot-mobile"></div>
+                        <h3 class="timeline-card-title">2022 - TEKNOFEST BAKÜ VE KARADENİZ</h3>
+                        <div class="timeline-card-content">
+                            <p style="text-align:justify">2022 yılında TEKNOFEST, hem uluslararası arenaya açıldı hem de Karadeniz bölgesinde gençleri teknolojiyle buluşturdu. <strong>26–29 Mayıs 2022’de Azerbaycan’ın başkenti Bakü’de </strong>gerçekleştirilen TEKNOFEST, yurt dışında düzenlenen&nbsp;ilk festival&nbsp;oldu. <strong>10 farklı kategoride </strong>yarışmalara 1.000 takım ve 5.000’den fazla yarışmacı başvurdu; finalist 250’den fazla takım ödüllerini Türkiye Cumhurbaşkanı Recep Tayyip Erdoğan ve Azerbaycan Cumhurbaşkanı İlham Aliyev’den aldı.&nbsp;Hürkuş temel eğitim uçağı&nbsp;ilk kez Azerbaycan’a uçarak gösteri yaptı,&nbsp;T625 Gökbey&nbsp;statik alanda sergilendi ve&nbsp;Milli Muharip Uçak VR simülatörü&nbsp;ziyaretçilere uçuş deneyimi sundu. Nefes kesen uçuş gösterilerinde Türk pilotların yanı sıra <strong>Nobel ödüllü Prof. Dr.&nbsp;Aziz Sancar’da</strong> festivale katıldı. Festival, <strong>300.000’den fazla ziyaretçi</strong> tarafından takip edildi.</p>
+
+<p style="text-align:justify"><strong>30 Ağustos-4 Eylül 2022</strong> tarihlerinde <strong>Samsun Çarşamba Havalimanı </strong>merkezli&nbsp;<strong>TEKNOFEST Karadeniz</strong>&nbsp;düzenlendi. <strong>Bölgesel bazda gerçekleştirilen&nbsp;ilk festival</strong>&nbsp;olan etkinlikte Rize, Ordu, Giresun ve Trabzon’da da küçük çaplı etkinlikler yapıldı. 81 il ve 107 ülkeden 154.000’den fazla takım ve<strong> 600.000’den fazla yarışmacı 40 farklı teknoloji</strong> yarışmasında yer aldı. Festivalde&nbsp;<strong>Bayraktar KIZILELMA ilk kez </strong>sergilendi. Ayrıca, dünya çapında ilk ve tek&nbsp;Dikey İnişli Roket Yarışması gerçekleştirildi.</p>
+
+<p style="text-align:justify">Bir çocuk gelsin bir uçağa dokunsun projesi ile 13 farklı şehirden gelen 50.000 öğrenci <strong>"Bir Çocuk Gelsin Bir Uçağa Dokunsun" Gezi Programı </strong>ile TEKNOFEST'te tek yürek oldular.</p>
+
+<p style="text-align:justify">2022 yılı, TEKNOFEST’in <strong>uluslararası ve bölgesel arenada bir ilke imza attığı</strong> bir yıl olarak kayıtlara geçti.</p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="timeline-year-group">
+                <div class="timeline-year-container">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-items">
+                    
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-dot-mobile"></div>
+                        <h3 class="timeline-card-title">2021 - TEKNOFEST İSTANBUL</h3>
+                        <div class="timeline-card-content">
+                            <p style="text-align:justify"><strong>21–26 Eylül 2021 </strong>tarihlerinde <strong>İstanbul Atatürk Havalimanı’nda</strong> düzenlenen TEKNOFEST, <strong>1.000.000 ziyaretçi </strong>ile teknoloji ve havacılık alanında Türkiye’nin en büyük festivallerinden biri oldu. 72 paydaş kurumun katkılarıyla gerçekleştirilen festivalde 35 farklı kategoride yarışmalar düzenlendi; <strong>200.000’den fazla kişi</strong> başvurdu, 81 ilden ve 111 ülkeden katılımcılar festivale dahil oldu. Yarışmalarda dereceye giren takımlara 5 milyon TL’den fazla ödül, malzeme desteği ve diğer destekler ile toplamda 7 milyon TL’nin üzerinde katkı sağlandı.</p>
+
+<p style="text-align:justify">Festival, gençlere ilham veren katılımlarla öne çıktı;<strong> Nobel ödüllü Prof. Dr.&nbsp;Aziz Sancar,</strong> TEKNOFEST’e katılarak gençlerle buluştu. Türkiye ve Azerbaycan iş birliği protokolü imzalanırken, Azerbaycan Hava Kuvvetleri’ne ait MiG-29 jetleri gökyüzünde gösteri yaptı ve Türk Hava Kuvvetleri envanteriyle birlikte geçiş uçuşu gerçekleştirdi. Festivalde ayrıca ilk kez gerçekleştirilen&nbsp;Türkçe Doğal Dil İşleme Yarışması&nbsp;düzenlendi ve 47 genç yenilikçi çözümlerini sergiledi.</p>
+
+<p style="text-align:justify">Gökyüzü gösterilerinde Türk Yıldızları, SOLOTÜRK, ATAK helikopterleri, Bayraktar TB2 ve&nbsp;Akıncı SİHA&nbsp;F-16 ile kol uçuşu yaptı. Yerli imkanlarla geliştirilen&nbsp;Aksungur İHA,&nbsp;GÖKBEY helikopteri&nbsp;ve ilk defa halkın beğenisine sunulan&nbsp;<strong>TOGG yerli otomobil</strong>&nbsp;festivalde sergilendi.</p>
+
+<p style="text-align:justify">TEKNOFEST 2021, simülasyon, yapay zekâ ve insansız hava araçları gibi yeni yarışma kategorileri ve uluslararası katılımcılarıyla Türkiye’nin millî teknoloji hareketinde yeni ufuklar açtı.</p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="timeline-year-group">
+                <div class="timeline-year-container">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-items">
+                    
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-dot-mobile"></div>
+                        <h3 class="timeline-card-title">2020 - TEKNOFEST GAZİANTEP</h3>
+                        <div class="timeline-card-content">
+                            <p style="text-align:justify"><strong>24–27 Eylül 2020</strong> tarihlerinde <strong>Gaziantep Ortadoğu Fuar Merkezi’nde</strong> düzenlenen TEKNOFEST, COVID-19 pandemisi ziyaretçiye kapalı gerçekleştirildi; ancak festival internet ve sosyal medya kanallarından büyük ilgi gördü. 63 paydaş kurumun katkılarıyla<strong> 21 farklı kategoride </strong>teknoloji yarışmaları düzenlendi.<strong> 100.000’den fazla kişi başvurdu, </strong>81 ilden ve 84 ülkeden katılımcılar festivale dahil oldu. Yarışmalarda dereceye giren takımlara 3 milyon TL’den fazla ödül, ön elemeyi geçen takımlara ise 5 milyon TL düzeyinde malzeme desteği sağlandı.</p>
+
+<p style="text-align:justify">Festivalde Türkiye Teknoloji Takımı Vakfı ve girişimcilerinin ortak çalışması olan&nbsp;<strong>DENEYAP KART Elektronik Geliştirme Seti</strong>&nbsp;tanıtıldı. Gökyüzü, Türk Yıldızları, SOLOTÜRK, ATAK ve Jandarma Çelik Kanatlar’ın gösteri uçuşlarına ev sahipliği yaptı. Emniyet Genel Müdürlüğü ve Sahil Güvenlik Komutanlığı’nın ortaklaşa gerçekleştirdiği “Üzüm Salkımı” gösterisi izleyenlerden büyük beğeni topladı. Dünyanın en başarılı akrobasi pilotlarından Red Bull sporcusu Dario Costa’da gösterilerde hünerlerini sergiledi.</p>
+
+<p style="text-align:justify">TEKNOFEST 2020 Gaziantep, <strong>sosyal medyada&nbsp;yılın en çok konuşulan organizasyonu</strong>&nbsp;oldu; 1.940.918 paylaşım alırken, en çok konuşulan 5. hashtag 1.460.348 kez kullanıldı. Festival, Türkiye’nin millî teknoloji hareketinin pandemi koşullarında dahi güçlü şekilde sürdüğünü gösterdi.</p>
+
+<div style="text-align:justify">&nbsp;</div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="timeline-year-group">
+                <div class="timeline-year-container">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-items">
+                    
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-dot-mobile"></div>
+                        <h3 class="timeline-card-title">2019 - TEKNOFEST İSTANBUL</h3>
+                        <div class="timeline-card-content">
+                            <p style="text-align:justify"><strong>17–22 Eylül 2019 </strong>tarihlerinde <strong>İstanbul Atatürk Havalimanı’nda</strong> düzenlenen TEKNOFEST, katılım sayısı bakımından<strong> dünyanın en büyük festivali</strong> oldu; <strong>1.720.000 ziyaretçi </strong>festival alanını deneyimledi. 2 düzenleyici kuruluş ve 53 paydaş kurumun katkılarıyla gerçekleştirilen festival, <strong>19 farklı kategoride</strong> teknoloji yarışmalarına ev sahipliği yaptı ve 2 milyon TL’den fazla ödül dağıtıldı. <strong>50.000’den fazla kişi </strong>yarışmalara başvurdu, 81 ilden ve 122 ülkeden katılımcılar festivalde yer aldı.</p>
+
+<p style="text-align:justify">Festivalde öne çıkan etkinliklerden biri, uluslararası ilk uçuşunu Rusya’dan İstanbul’a yapan MC-21 yolcu uçağının gösteri uçuşu ve sergilenmesiydi. İlk yerli ve millî helikopterimiz Atak, eğitim uçağı Hürjet, BMC-Altay tankı ve Baykar tarafından geliştirilen AKINCI Taarruzi İHA ile&nbsp;<strong>CEZERİ Uçan Araba ilk kez sergilendi.</strong> SOLOTÜRK ve Türk Yıldızları’nın gösteri uçuşları ilklere sahne olurken, Russian Knights Aerobatic Team, SU-35 ve Be-200 gibi uluslararası uçaklar da izleyicilerle buluştu.ve ANKA da gösteri uçuşları gerçekleştirdi.<br>
+<br>
+TEKNOFEST 2019, Türkiye’nin millî teknoloji hareketini ulusal ve uluslararası alanda daha da görünür kıldı.</p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="timeline-year-group">
+                <div class="timeline-year-container">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-items">
+                    
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-dot-mobile"></div>
+                        <h3 class="timeline-card-title">2018 - TEKNOFEST İSTANBUL</h3>
+                        <div class="timeline-card-content">
+                            <p style="text-align:justify"><strong>20–23 Eylül 2018</strong> tarihlerinde&nbsp;<strong>İstanbul Havalimanı’nda</strong> düzenlenen <strong>ilk TEKNOFEST,</strong> Türkiye’nin millî teknoloji vizyonunu toplumla buluşturdu. Festival, Türkiye Teknoloji Takımı Vakfı ve T.C. Sanayi ve Teknoloji Bakanlığı yürütücü kurum himayelerinde, 30 paydaş kurum iş birliğiyle gerçekleştirildi.</p>
+
+<p style="text-align:justify"><strong>14 farklı kategoride</strong> teknoloji yarışmaları düzenlendi, 2 milyon TL’den fazla ödül ve maddi destek sunuldu. <strong>20.000’den fazla kişi başvurdu, </strong>yaklaşık <strong>550.000 ziyaretçi</strong> festival alanını deneyimledi ve TEKNOFEST, toplam ziyaretçi sayısında dünyanın en büyük üçüncü, günlük ziyaretçi sayısında ise en büyük ikinci havacılık etkinliği oldu.</p>
+
+<p style="text-align:justify">Festivalin öne çıkan etkinliği<strong> “Yarışların Yarışı”nda SOLOTÜRK F-16, Kenan Sofuoğlu’nun Kawasaki H2R’ı, VIP Jet Challenger 605, Aston Martin, Lotus Evora 410 Sport, Tesla PL 1000DL ve Red Bull Racing Formula 1 aracı </strong>aynı anda yarıştı. Dört gün boyunca gökyüzü Türk Yıldızları, SOLOTÜRK, Atak Helikopterleri, Bayraktar TB2, HÜRKUŞ ve sivil akrobasi pilotlarının gösterileriyle renklendi. Yüzlerce çocuk, pilotların yanında kokpitte ilk uçuş deneyimini yaşarken, <strong>THY yolcu uçağı Türk Yıldızları ile pasaj geçişi</strong> gerçekleştirdi.</p>
+
+<p style="text-align:justify">TEKNOFEST 2018, sadece bir festival değil, Türkiye’nin geleceğini şekillendiren millî teknoloji hareketinin başlangıcı oldu.</p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section> -->
+
+
+
+<section class="timeline-wrapper">
+    <div class="timeline-line"></div>
+  <div class="timeline-progress"></div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot">2025</div>
+    <div class="timeline-content">
+    
+        <h3 class="timeline-card-title">2025 – TEKNOFEST KKTC, MAVİ VATAN VE İSTANBUL</h3>
+        
+            <p style="text-align:justify">2025 yılında TEKNOFEST, tarihinde<strong> bir ilke imza atarak&nbsp;</strong>Kuzey Kıbrıs Türk Cumhuriyeti (KKTC),&nbsp;Mavi Vatan&nbsp;ve&nbsp;İstanbul&nbsp;olmak üzere,&nbsp;biri yurt dışında gerçekleştirilen <strong>toplam üç farklı festivalle</strong>&nbsp;teknoloji tutkunlarını bir araya getirdi.<br>
+        <br>
+        <strong>Kuzey Kıbrıs Türk Cumhuriyeti’nde Eski Ercan Havalimanı’nda 1-4 Mayıs 2025</strong> tarihleri arasında düzenlenen festival,<strong> 225.000 ziyaretçiyi </strong>ağırlayarak kardeşlik bağlarını güçlendirdi ve teknoloji tutkunu gençlerle dolup taştı. Festival kapsamında teknoloji yarışmaları, sergiler ve interaktif etkinlikler yer aldı. 130 paydaş kurumun katkısıyla 6 ana kategori ve 13 alt kategoride yarışmalar düzenlendi, 2,5 milyon TL ödül ve 3 milyon TL malzeme desteği sağlandı.</p>
+
+        <p style="text-align:justify"><strong>İstanbul Tersanesi Komutanlığı’nda</strong> <strong>28-31 Ağustos 2025</strong> tarihleri arasında düzenlenen <strong>TEKNOFEST Mavi Vatan, </strong>denizcilik alanındaki millî teknoloji yansımalarını geniş kitlelerle buluşturdu. <strong>175.000</strong> deniz sevdalısını ağırlayan etkinlikte teknoloji yarışmaları, fuar etkinlikleri, milli teknoloji ürünleri sergileri, SAT ve SAS gösterileri, gemi gezileri, sanal gerçeklik deneyim alanları, atölyeler katılımcılara unutulmaz bir deneyim sundu.&nbsp;24 Ağustos’ta İstanbul Boğazı’nda gerçekleştirilen&nbsp;<strong>Maziden Atiye TEKNOFEST Mavi Vatan Boğaz Geçişi, </strong>TCG ANADOLU ve TCG Savarona gemilerinin katılımıyla yapıldı. Yavuz Sultan Selim Köprüsü’nden başlayan ve<strong> Dolmabahçe’de Cumhurbaşkanı Erdoğan’ın </strong>selamlamasıyla devam eden geçit,<strong> Moda, Caddebostan ve Maltepe</strong> sahil hattında son buldu. Genç yarışmacılar, şehit çocukları ve sevgi evlerindeki çocuklar tarihi ana tanıklık etti.</p>
+
+        <p style="text-align:justify">2025’in final durağı olan <strong>TEKNOFEST İstanbul,</strong> <strong>İstanbul Atatürk Havalimanı’nda 17-21 Eylül 2025 </strong>tarihleri arasında düzenlendi ve festival sonunda <strong>1.032.000 ziyaretçiyle</strong> buluştu. Festivalde <strong>58 ana kategori ve 137 alt kategoride </strong>teknoloji yarışmaları düzenlendi; kazananlara <strong>85 milyon TL’nin üzerinde maddi destek ve 65 milyon TL’nin üzerinde ödül </strong>verildi. 137 paydaş kurumun katkısıyla gerçekleştirilen etkinlik, gökyüzünde nefes kesici hava gösterileri, konserler, sergiler, simülasyon alanları, planetaryum, deniz, kara ve hava araçları sergileri ile gençlere teknoloji ve deneyim dolu bir hafta sundu.</p>
+
+        <p style="text-align:justify">TEKNOFEST 2025’te birçok yenilik ve ilkler katılımcılarla buluştu. Festival kapsamında<strong> 13 yeni yarışma kategorisi </strong>eklendi; Deniz Araçları Sergisi, TEKNOFEST Şampiyonlar Geçidi, KÜME Vakfı Alan Etkinliği, Fetih 1453 Dijital Deneyim Alanı, Çelik Kubbe Hava Savunma Sistemi ve TEİ BREMZE Deneyim Alanı ilk kez ziyaretçilere sunuldu. Bunun yanında Tarım Teknolojileri Kümelenmesi Etkinlik Alanı da katılımcıların ilgisine açılarak festival deneyimini zenginleştirdi.</p>
+        
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot">2024</div>
+    <div class="timeline-content">
+    
+       
+        <h3 class="timeline-card-title">2024 - TEKNOFEST AKDENİZ</h3>
+       
+            <p style="text-align:justify">TEKNOFEST, <strong>7. yılında </strong>Türkiye’nin farklı bölgelerinde büyük bir heyecanla gerçekleştirildi.&nbsp;TEKNOFEST Akdeniz 2024, <strong>5-8 Eylül tarihlerinde Antalya Anfaş Uluslararası Fuar ve Kongre Merkezi’nde</strong> düzenlenen&nbsp;<strong>TEKNOFEST Teknoloji Yarışmaları</strong>&nbsp;ile dikkat çekti. <strong>50 farklı kategorideki </strong>yarışmalara 200.000’den fazla takım ve 800.000’den fazla genç başvurarak geleceğin teknoloji liderleri olma yolunda adım attı.</p>
+
+    <p style="text-align:justify">Ardından, <strong>2-6 Ekim 2024 </strong>tarihlerinde <strong>Adana Şakirpaşa Havalimanı’nda</strong> düzenlenen&nbsp;<strong>TEKNOFEST Adana,</strong> <strong>1.100.000 ziyaretçi </strong>ile büyük coşkuya sahne oldu. <strong>50 ana kategori </strong>ve 128 alt kategorideki yarışmalara 100 ülkeden <strong>1.650.000’den</strong> fazla genç başvurdu. Festivalde&nbsp;Anka III&nbsp;ve&nbsp;TUSAŞ Bayraktar TB3&nbsp;halka açık ilk uçuşlarını gerçekleştirdi. Ayrıca ziyaretçiler&nbsp;Köklerden Geleceğe: TEKNOFEST Dijital Evren, TEKNOFEST Zaman Tüneli, Hareketli Kara Araçları Parkuru, Çocuk Sahnesi, Türkiye’nin İnsanlı İlk Uzay Misyonu Çadırı,&nbsp;TEKNOFEST Şampiyonlar Ligi,&nbsp;Zaferin İzinde: Çanakkale Deneyim Alanı&nbsp;ve&nbsp;Röportaj Alanı&nbsp;gibi özel deneyim alanlarını keşfetti.</p>
+
+    <p style="text-align:justify">2024 TEKNOFEST, 126 paydaş kurum iş birliğiyle düzenlendi; <strong>30 milyon TL’den fazla ödül ve 55 milyon TL’den fazla malzeme desteği </strong>sunuldu. 81 ilden ve 100 ülkeden<strong> 1.650.000’den fazla yarışmacı</strong> başvurdu. Festival, gençleri teknolojinin evrensel coşkusuyla buluşturarak Türkiye’nin millî teknoloji hamlesini bir adım daha ileri taşıdı.</p>
+           
+    
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot">2023</div>
+    <div class="timeline-content">
+    
+            <h3 class="timeline-card-title">2023 – TEKNOFEST İSTANBUL, ANKARA VE İZMİR</h3>
+           
+                <p style="text-align:justify"><strong>Cumhuriyetimizin 100. yılında </strong>TEKNOFEST, <strong>İstanbul, Ankara ve İzmir’de</strong> gerçekleştirildi ve toplamda <strong>4.590.000 ziyaretçi</strong> ile rekor kırdı. Festival, 2 düzenleyici kuruluş ve 123 paydaş kurum iş birliğiyle <strong>44 farklı teknoloji yarışmasına</strong> ev sahipliği yaptı. 81 ilden ve 100 ülkeden <strong>1.000.000’dan fazla yarışmacı</strong> başvurdu; toplamda 20 milyon TL’den fazla ödül ve malzeme desteği dağıtıldı.</p>
+
+            <p style="text-align:justify">İlk durak&nbsp;<strong>İstanbul&nbsp;</strong>oldu;<strong> 27 Nisan – 1 Mayıs 2023</strong> tarihlerinde <strong>Atatürk Havalimanı’nda</strong> gerçekleştirilen festivalde&nbsp;<strong>KIZILELMA&nbsp;halka açık ilk uçuşunu</strong> yaptı ve SOLOTÜRK ile kol uçuşu gerçekleştirerek <strong>bir ilke imza attı. </strong>Dünyaca ünlü akrobasi ekipleri&nbsp;UAE Fursan Al Emarat ve&nbsp;Royal Morocco Green March, Türk pilotlarla birlikte gösteriler yaptı; Türk Yıldızları ve Fursan Al Emarat’ın pasaj geçişi İstanbul’da bir ilk oldu. İstanbul etkinliklerinde ayrıca, görkemli açılış seremonisinin ardından <strong>Cumhurbaşkanı Recep Tayyip Erdoğan, Azerbaycan Cumhurbaşkanı İlham Aliyev ve Libya Başbakanı Abdulhamid Dibeybe </strong>ağırlandı. Uluslararası Uzay İstasyonu’na gidecek <strong>Alper Gezeravcı ve Tuva Cihangir Atasever’e</strong> Türkiye’nin gücünü ve kararlılığını simgeleyen bayrağı teslim etti. TEKNOFEST İstanbul,<strong> 2.547.000</strong> teknoloji tutkununu bir araya getirdi.</p>
+
+            <p style="text-align:justify">İkinci durak&nbsp;<strong>Ankara</strong>&nbsp;oldu; <strong>30 Ağustos – 3 Eylül 2023 </strong>tarihlerinde <strong>Etimesgut Havalimanı’nda </strong>gerçekleştirilen festivalde&nbsp;DeltaV SORS Sonda Roketi&nbsp;sergilendi ve <strong>TEKNOFEST Girişim Yarışması</strong> ilk kez Ankara’da düzenlendi. Festival kapsamında&nbsp;Mahzar Alanson konseri&nbsp;gerçekleştirildi. Ankara, <strong>943.000</strong> teknoloji tutkununu TEKNOFEST’te bir araya getirdi.<br>
+            <br>
+            Üçüncü durak<strong>&nbsp;İzmir&nbsp;</strong>oldu; <strong>27 Eylül – 1 Ekim 2023</strong> tarihlerinde <strong>Çiğli Havalimanı’nda d</strong>üzenlenen TEKNOFEST’te BMC TULGA SUV ilk defa sergilendi. <strong>DENEYAP Makeathon ve Fikir Maratonu </strong>yarışmaları<strong> ilk kez</strong> gerçekleştirildi ve TEKNOFEST Girişim Yarışması İzmir’de düzenlendi. İzmir, <strong>1.100.000</strong> teknoloji tutkununu TEKNOFEST’te bir araya getirdi.</p>
+
+            <p style="text-align:justify">2023 yılı boyunca <strong>“Bir Çocuk Gelsin Bir Uçağa Dokunsun”</strong> projesi kapsamında toplam 100.000’den fazla öğrenci etkinlik alanlarını ziyaret ederek TEKNOFEST ruhunu deneyimledi.</p>
+       
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot">2022</div>
+    <div class="timeline-content">
+ 
+                        <h3 class="timeline-card-title">2022 - TEKNOFEST BAKÜ VE KARADENİZ</h3>
+                      
+                            <p style="text-align:justify">2022 yılında TEKNOFEST, hem uluslararası arenaya açıldı hem de Karadeniz bölgesinde gençleri teknolojiyle buluşturdu. <strong>26–29 Mayıs 2022’de Azerbaycan’ın başkenti Bakü’de </strong>gerçekleştirilen TEKNOFEST, yurt dışında düzenlenen&nbsp;ilk festival&nbsp;oldu. <strong>10 farklı kategoride </strong>yarışmalara 1.000 takım ve 5.000’den fazla yarışmacı başvurdu; finalist 250’den fazla takım ödüllerini Türkiye Cumhurbaşkanı Recep Tayyip Erdoğan ve Azerbaycan Cumhurbaşkanı İlham Aliyev’den aldı.&nbsp;Hürkuş temel eğitim uçağı&nbsp;ilk kez Azerbaycan’a uçarak gösteri yaptı,&nbsp;T625 Gökbey&nbsp;statik alanda sergilendi ve&nbsp;Milli Muharip Uçak VR simülatörü&nbsp;ziyaretçilere uçuş deneyimi sundu. Nefes kesen uçuş gösterilerinde Türk pilotların yanı sıra <strong>Nobel ödüllü Prof. Dr.&nbsp;Aziz Sancar’da</strong> festivale katıldı. Festival, <strong>300.000’den fazla ziyaretçi</strong> tarafından takip edildi.</p>
+
+                        <p style="text-align:justify"><strong>30 Ağustos-4 Eylül 2022</strong> tarihlerinde <strong>Samsun Çarşamba Havalimanı </strong>merkezli&nbsp;<strong>TEKNOFEST Karadeniz</strong>&nbsp;düzenlendi. <strong>Bölgesel bazda gerçekleştirilen&nbsp;ilk festival</strong>&nbsp;olan etkinlikte Rize, Ordu, Giresun ve Trabzon’da da küçük çaplı etkinlikler yapıldı. 81 il ve 107 ülkeden 154.000’den fazla takım ve<strong> 600.000’den fazla yarışmacı 40 farklı teknoloji</strong> yarışmasında yer aldı. Festivalde&nbsp;<strong>Bayraktar KIZILELMA ilk kez </strong>sergilendi. Ayrıca, dünya çapında ilk ve tek&nbsp;Dikey İnişli Roket Yarışması gerçekleştirildi.</p>
+
+                        <p style="text-align:justify">Bir çocuk gelsin bir uçağa dokunsun projesi ile 13 farklı şehirden gelen 50.000 öğrenci <strong>"Bir Çocuk Gelsin Bir Uçağa Dokunsun" Gezi Programı </strong>ile TEKNOFEST'te tek yürek oldular.</p>
+
+                        <p style="text-align:justify">2022 yılı, TEKNOFEST’in <strong>uluslararası ve bölgesel arenada bir ilke imza attığı</strong> bir yıl olarak kayıtlara geçti.</p>
+                        
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot">2021</div>
+    <div class="timeline-content">
+ 
+                        <h3 class="timeline-card-title">2021 - TEKNOFEST İSTANBUL</h3>
+                      
+                            <p style="text-align:justify"><strong>21–26 Eylül 2021 </strong>tarihlerinde <strong>İstanbul Atatürk Havalimanı’nda</strong> düzenlenen TEKNOFEST, <strong>1.000.000 ziyaretçi </strong>ile teknoloji ve havacılık alanında Türkiye’nin en büyük festivallerinden biri oldu. 72 paydaş kurumun katkılarıyla gerçekleştirilen festivalde 35 farklı kategoride yarışmalar düzenlendi; <strong>200.000’den fazla kişi</strong> başvurdu, 81 ilden ve 111 ülkeden katılımcılar festivale dahil oldu. Yarışmalarda dereceye giren takımlara 5 milyon TL’den fazla ödül, malzeme desteği ve diğer destekler ile toplamda 7 milyon TL’nin üzerinde katkı sağlandı.</p>
+
+                            <p style="text-align:justify">Festival, gençlere ilham veren katılımlarla öne çıktı;<strong> Nobel ödüllü Prof. Dr.&nbsp;Aziz Sancar,</strong> TEKNOFEST’e katılarak gençlerle buluştu. Türkiye ve Azerbaycan iş birliği protokolü imzalanırken, Azerbaycan Hava Kuvvetleri’ne ait MiG-29 jetleri gökyüzünde gösteri yaptı ve Türk Hava Kuvvetleri envanteriyle birlikte geçiş uçuşu gerçekleştirdi. Festivalde ayrıca ilk kez gerçekleştirilen&nbsp;Türkçe Doğal Dil İşleme Yarışması&nbsp;düzenlendi ve 47 genç yenilikçi çözümlerini sergiledi.</p>
+
+                            <p style="text-align:justify">Gökyüzü gösterilerinde Türk Yıldızları, SOLOTÜRK, ATAK helikopterleri, Bayraktar TB2 ve&nbsp;Akıncı SİHA&nbsp;F-16 ile kol uçuşu yaptı. Yerli imkanlarla geliştirilen&nbsp;Aksungur İHA,&nbsp;GÖKBEY helikopteri&nbsp;ve ilk defa halkın beğenisine sunulan&nbsp;<strong>TOGG yerli otomobil</strong>&nbsp;festivalde sergilendi.</p>
+
+                            <p style="text-align:justify">TEKNOFEST 2021, simülasyon, yapay zekâ ve insansız hava araçları gibi yeni yarışma kategorileri ve uluslararası katılımcılarıyla Türkiye’nin millî teknoloji hareketinde yeni ufuklar açtı.</p>
+                       
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot">2020</div>
+    <div class="timeline-content">
+      
+                        <h3 class="timeline-card-title">2020 - TEKNOFEST GAZİANTEP</h3>
+                      
+                            <p style="text-align:justify"><strong>24–27 Eylül 2020</strong> tarihlerinde <strong>Gaziantep Ortadoğu Fuar Merkezi’nde</strong> düzenlenen TEKNOFEST, COVID-19 pandemisi ziyaretçiye kapalı gerçekleştirildi; ancak festival internet ve sosyal medya kanallarından büyük ilgi gördü. 63 paydaş kurumun katkılarıyla<strong> 21 farklı kategoride </strong>teknoloji yarışmaları düzenlendi.<strong> 100.000’den fazla kişi başvurdu, </strong>81 ilden ve 84 ülkeden katılımcılar festivale dahil oldu. Yarışmalarda dereceye giren takımlara 3 milyon TL’den fazla ödül, ön elemeyi geçen takımlara ise 5 milyon TL düzeyinde malzeme desteği sağlandı.</p>
+
+                        <p style="text-align:justify">Festivalde Türkiye Teknoloji Takımı Vakfı ve girişimcilerinin ortak çalışması olan&nbsp;<strong>DENEYAP KART Elektronik Geliştirme Seti</strong>&nbsp;tanıtıldı. Gökyüzü, Türk Yıldızları, SOLOTÜRK, ATAK ve Jandarma Çelik Kanatlar’ın gösteri uçuşlarına ev sahipliği yaptı. Emniyet Genel Müdürlüğü ve Sahil Güvenlik Komutanlığı’nın ortaklaşa gerçekleştirdiği “Üzüm Salkımı” gösterisi izleyenlerden büyük beğeni topladı. Dünyanın en başarılı akrobasi pilotlarından Red Bull sporcusu Dario Costa’da gösterilerde hünerlerini sergiledi.</p>
+
+                        <p style="text-align:justify">TEKNOFEST 2020 Gaziantep, <strong>sosyal medyada&nbsp;yılın en çok konuşulan organizasyonu</strong>&nbsp;oldu; 1.940.918 paylaşım alırken, en çok konuşulan 5. hashtag 1.460.348 kez kullanıldı. Festival, Türkiye’nin millî teknoloji hareketinin pandemi koşullarında dahi güçlü şekilde sürdüğünü gösterdi.</p>
+
+                        <div style="text-align:justify">&nbsp;</div>
+                      
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot">2019</div>
+    <div class="timeline-content">
+  
+                        <h3 class="timeline-card-title">2019 - TEKNOFEST İSTANBUL</h3>
+                      
+                            <p style="text-align:justify"><strong>17–22 Eylül 2019 </strong>tarihlerinde <strong>İstanbul Atatürk Havalimanı’nda</strong> düzenlenen TEKNOFEST, katılım sayısı bakımından<strong> dünyanın en büyük festivali</strong> oldu; <strong>1.720.000 ziyaretçi </strong>festival alanını deneyimledi. 2 düzenleyici kuruluş ve 53 paydaş kurumun katkılarıyla gerçekleştirilen festival, <strong>19 farklı kategoride</strong> teknoloji yarışmalarına ev sahipliği yaptı ve 2 milyon TL’den fazla ödül dağıtıldı. <strong>50.000’den fazla kişi </strong>yarışmalara başvurdu, 81 ilden ve 122 ülkeden katılımcılar festivalde yer aldı.</p>
+
+                            <p style="text-align:justify">Festivalde öne çıkan etkinliklerden biri, uluslararası ilk uçuşunu Rusya’dan İstanbul’a yapan MC-21 yolcu uçağının gösteri uçuşu ve sergilenmesiydi. İlk yerli ve millî helikopterimiz Atak, eğitim uçağı Hürjet, BMC-Altay tankı ve Baykar tarafından geliştirilen AKINCI Taarruzi İHA ile&nbsp;<strong>CEZERİ Uçan Araba ilk kez sergilendi.</strong> SOLOTÜRK ve Türk Yıldızları’nın gösteri uçuşları ilklere sahne olurken, Russian Knights Aerobatic Team, SU-35 ve Be-200 gibi uluslararası uçaklar da izleyicilerle buluştu.ve ANKA da gösteri uçuşları gerçekleştirdi.<br>
+                            <br>
+                            TEKNOFEST 2019, Türkiye’nin millî teknoloji hareketini ulusal ve uluslararası alanda daha da görünür kıldı.</p>
+                  
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot">2018</div>
+    <div class="timeline-content">
+   
+                        <h3 class="timeline-card-title">2018 - TEKNOFEST İSTANBUL</h3>
+                        
+                            <p style="text-align:justify"><strong>20–23 Eylül 2018</strong> tarihlerinde&nbsp;<strong>İstanbul Havalimanı’nda</strong> düzenlenen <strong>ilk TEKNOFEST,</strong> Türkiye’nin millî teknoloji vizyonunu toplumla buluşturdu. Festival, Türkiye Teknoloji Takımı Vakfı ve T.C. Sanayi ve Teknoloji Bakanlığı yürütücü kurum himayelerinde, 30 paydaş kurum iş birliğiyle gerçekleştirildi.</p>
+
+                            <p style="text-align:justify"><strong>14 farklı kategoride</strong> teknoloji yarışmaları düzenlendi, 2 milyon TL’den fazla ödül ve maddi destek sunuldu. <strong>20.000’den fazla kişi başvurdu, </strong>yaklaşık <strong>550.000 ziyaretçi</strong> festival alanını deneyimledi ve TEKNOFEST, toplam ziyaretçi sayısında dünyanın en büyük üçüncü, günlük ziyaretçi sayısında ise en büyük ikinci havacılık etkinliği oldu.</p>
+
+                            <p style="text-align:justify">Festivalin öne çıkan etkinliği<strong> “Yarışların Yarışı”nda SOLOTÜRK F-16, Kenan Sofuoğlu’nun Kawasaki H2R’ı, VIP Jet Challenger 605, Aston Martin, Lotus Evora 410 Sport, Tesla PL 1000DL ve Red Bull Racing Formula 1 aracı </strong>aynı anda yarıştı. Dört gün boyunca gökyüzü Türk Yıldızları, SOLOTÜRK, Atak Helikopterleri, Bayraktar TB2, HÜRKUŞ ve sivil akrobasi pilotlarının gösterileriyle renklendi. Yüzlerce çocuk, pilotların yanında kokpitte ilk uçuş deneyimini yaşarken, <strong>THY yolcu uçağı Türk Yıldızları ile pasaj geçişi</strong> gerçekleştirdi.</p>
+
+                            <p style="text-align:justify">TEKNOFEST 2018, sadece bir festival değil, Türkiye’nin geleceğini şekillendiren millî teknoloji hareketinin başlangıcı oldu.</p>
+                     
+    </div>
+  </div>
+
+</section>
+
+
+
+     <footer class="footer">
+
+            <img src="assets/images/teknofest-footer-3.png" class="absolute-logo" alt="">
+
+
+            <div class="container inner-footer">
+                <div class="footer-box">
+                    <img src="assets/images/Screenshot 2026-01-18 144214.png" alt="">
+                 
+                   
+                </div>
+                <div class="footer-box">
+                   <i class="fa-solid fa-location-dot fa-xl"></i>
+                   <h3>ADRES</h3>
+                   <p>Ünalan Mahallesi Ayazma Caddesi No:3 Üsküdar/İstanbul</p>
+                </div>
+                <div class="footer-box">
+                    <i class="fa-solid fa-phone fa-xl"></i>
+                    <h3>TELEFON</h3>
+                    <P>+90 212 501 94 34</P>
+                </div>
+                <div class="footer-box">
+                    <i class="fa-solid fa-share-nodes fa-xl"></i>
+                    <h3>SOSYAL MEDYA</h3>
+                   <i class="fa-brands fa-instagram"></i>
+                   <i class="fa-brands fa-x-twitter"></i>
+                   <i class="fa-brands fa-facebook"></i>
+                   <i class="fa-brands fa-youtube"></i>
+                   <i class="fa-brands fa-linkedin"></i>
+                   <i class="fa-brands fa-telegram"></i>
+                   <i class="fa-brands fa-whatsapp"></i>
+                   <i class="fa-brands fa-tiktok"></i>
+                </div>
+               
+            </div>
+        </footer>
+
+
+        <section class="fixed-footer "> 
+            <div class="relative-area">
+                <div class="img-absolute-footer">
+                    <img src="assets/images/footer-nav-bg.png" alt="">
+                </div>
+                <div class="absolute-footer">
+                    <div class="flex-area">
+                        <div class="col-buttons-left">
+                            <a href="#" class="button-link-item active" target="_blank">
+                                <div class="icon">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                </div>
+                                <div class="text">ADAY ÖĞRENCİ</div>
+                            </a>
+                            <a href="#" target="_blank" class="button-link-item">
+                                <div class="icon">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <div class="text">ÖĞRENCİ</div>
+                            </a>
+                        </div>
+                        <div class="mid-search-wrapper">
+                            <div class="search-open-button">
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                        </div>
+                        <div class="col-buttons-right">
+                            <a href="#" class="button-link-item " target="_blank">
+                                <div class="icon">
+                                  <i class="fa-solid fa-user-graduate"></i>
+                                </div>
+                                <div class="text">MEZUN</div>
+                            </a>
+                            <a href="#" target="_blank" class="button-link-item">
+                                <div class="icon">
+                                   <i class="fa-solid fa-grip"></i>
+                                </div>
+                                <div class="text">HIZLI MENÜ</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+</div>
+
+<!-- up btn -->
+
+     <a href="#" style="background: linear-gradient(135deg,#01438f,#cf1720); border: 3px solid #01438f;" class="p-3 m-3  fixed bottom-0 right-0 z-50  rounded-circle " >
+               <i class="fa-solid fa-arrow-up text-white dark:text-gray-900 " ></i>
+             </a>
+
+<script>
+
+gsap.registerPlugin(ScrollTrigger);
+
+const items = gsap.utils.toArray(".timeline-item");
+const progressLine = document.querySelector(".timeline-progress");
+
+/* CONTENT + DOT GİRİŞ ANİMASYONU */
+items.forEach((item)=>{
+
+  const dot = item.querySelector(".timeline-dot");
+  const content = item.querySelector(".timeline-content");
+
+  gsap.from(content,{
+    scrollTrigger:{
+      trigger:item,
+      start:"top 80%"
+    },
+    y:80,
+    opacity:0,
+    duration:1,
+    ease:"power3.out"
+  });
+
+  gsap.from(dot,{
+    scrollTrigger:{
+      trigger:item,
+      start:"top 80%"
+    },
+    scale:0,
+    duration:0.6,
+    ease:"back.out(1.7)"
+  });
+
+  /* DOT AKTİFLEŞME */
+  ScrollTrigger.create({
+    trigger:item,
+    start:"top center",
+    end:"bottom center",
+    onEnter:()=>dot.classList.add("active"),
+    onLeaveBack:()=>dot.classList.remove("active")
+  });
+
+});
+
+/* PROGRESS ÇİZGİ ANİMASYONU */
+// gsap.to(progressLine,{
+//   height:"92%",
+//   ease:"none",
+//   scrollTrigger:{
+//     trigger:".timeline-wrapper",
+//     start:"top top",
+//     end:"bottom bottom",
+//     scrub:true
+//   }
+// });
+
+// gsap.to(progressLine,{
+//   height:"92%",
+//   ease:"none",
+//   scrollTrigger:{
+//     trigger:".timeline-wrapper",
+//     start:"top top",
+//     end: () => {
+//       return window.innerWidth <= 600
+//         ? window.innerHeight * 1.2   // 📱 mobile kısa
+//         : document.querySelector(".timeline-wrapper").offsetHeight; // 💻 desktop normal
+//     },
+//     scrub:true
+//   }
+// });
+
+
+function createProgressAnimation() {
+
+  // varsa eski trigger'ı temizle
+  ScrollTrigger.getAll().forEach(st => {
+    if (st.vars.trigger === ".timeline-wrapper") {
+      st.kill();
+    }
+  });
+
+  let isMobile = window.innerWidth <= 600;
+  let isDesktop = window.innerWidth <= 2000; 
+  gsap.to(progressLine, {
+    height: "92%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".timeline-wrapper",
+      start: "top+=80 top",
+      end: isMobile ? "bottom 50%" : "bottom bottom",
+      end: isDesktop ? "bottom 81%" : "bottom bottom",
+      scrub: true
+    }
+  });
+
+}
+
+// ilk çalıştırma
+createProgressAnimation();
+
+// resize olursa yeniden hesapla
+window.addEventListener("resize", () => {
+  ScrollTrigger.refresh();
+});
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+<script>
+    Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
+</body>
+</html>
+
