@@ -1,3 +1,5 @@
+
+
 let mobile_nav_icon = document.getElementById('mobile_nav_icon') ;
 let aside = document.getElementById('aside');
 
@@ -135,7 +137,6 @@ ScrollReveal().reveal('.footer-copyright ', {
 
 
 
-
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
@@ -223,3 +224,6 @@ document.querySelector('.carousel-prev').addEventListener('click', () => {
 //   const maxHeight = 6090; // çizgi ne kadar uzasın
 //   timeline.style.setProperty("--line-height", progress * maxHeight + "px");
 // });
+
+
+

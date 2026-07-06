@@ -38,7 +38,7 @@
     @include flexbox(center , center ,column);
     @include bg-img(url('../../assets/images/tekno-photo.jpg'));
     position: relative;
-    height:700px;
+    height:520px;
 
     @include media-up(md){
         height:calc(100vh - 75px);
@@ -57,33 +57,36 @@
         @include flexbox( center , center , column);
         position: relative;
         z-index: 10;
-        width: 80%;
+        width: 60%;
         @include media-up(lg) {
             width: 70%;
 
         }
 
         h1 {
-            font-size: 20px;
+             font-size:18px;
             text-align: center;
             color: $mainColor;
             font-weight: 1000;
-            letter-spacing: 30px;
+           letter-spacing:8px;
             line-height: 100px;
             
             @include media-up(sm){
                 font-size: 30px;
+                letter-spacing: 15px ; 
             }; 
             @include media-up(md){
                 font-size: 50px;
+                letter-spacing: 20px;
             }; 
             @include media-up(lg){
                 font-size: 90px;
+                letter-spacing: 30px ;
             }; 
         }
          p {
             text-align: center;
-            font-size: 26px;
+            font-size: 18px;
             @include media-up(md){
                 font-size: 27px;
             };
@@ -124,9 +127,9 @@
             
             flex-wrap: wrap;
             background-color: rgba(255, 255, 255, 0.789);
-            padding: 20px;
+            padding: 12px;
             border-radius:3px ;
-            gap: 20px;
+            gap: 12px;
 
              .search {
                 width: 100%;
@@ -142,13 +145,12 @@
 
                 input , select  {
                      width: 100%;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
+                     padding: 12px 12px 12px 40px;
                      font-family: Bricolage Grotesque ;
                     border: 1px solid #ccc;
                     transform: 0.3s;
                     border-radius: 3px; 
-
+                    font-size: 14px;
                     
 
                     &:focus {
@@ -166,6 +168,7 @@
                     transform: translateY(-50%);
                     top: 50%;
                     left: 15px;
+                    font-size: 14px;
                 }
              }
         }
@@ -1366,4 +1369,50 @@ $hoverColor: #0E137A;
         bottom: 20px; 
         
     }  
+}
+
+
+
+@media (max-width:320px){
+
+.hero{
+    height:520px;
+}
+
+.hero-info h1{
+    font-size:18px;
+    letter-spacing:8px;
+}
+
+.hero-info p{
+    font-size:18px;
+}
+
+.search-area{
+    padding:12px;
+    gap:12px;
+}
+
+.search input,
+.search select{
+    font-size:14px;
+    padding:12px 12px 12px 40px;
+}
+
+.fixed-footer{
+    height:70px;
+}
+
+.mid-search-wrapper{
+    width:65px;
+    height:65px;
+}
+
+.button-link-item .icon{
+    font-size:20px !important;
+}
+
+.button-link-item .text{
+    font-size:9px;
+}
 }

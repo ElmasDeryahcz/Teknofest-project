@@ -4,7 +4,10 @@
 
 header {
     background-color: #ededed !important;
-    min-height: 75px ;
+    min-height: 60px ;
+    @include media-up(md) {
+        min-height: 75px
+    }
     @include flexbox(center , center , row);
     position: fixed;
     top: 0;
@@ -28,7 +31,7 @@ header {
         height: 100%;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
+        gap: 8px;
 
         //  .modal-search {
         //         height: 100vh;
@@ -165,7 +168,11 @@ header {
         
         .menu {
             color: $thirdColor  ;
-            font-size: 30px;
+            font-size: 22px;
+            @include media-up(md){
+                font-size: 30px;
+
+            }
             font-weight: bolder;
             margin-inline-end: auto;
             cursor: pointer;
@@ -177,13 +184,17 @@ header {
         
         
         .fixed-header-logo {
-            width: 230px;
+            width: 140px;
             height: 130%;
             display: flex;
             justify-content: center;
             align-items: center;
             position: absolute;
-            top: 110px;
+            top: 78px; 
+            @include media-up(md){
+            width: 230px;
+            top: 110px;    
+            }
             left: 50%;
             transform: translate(-50% , -50%);
             img{
@@ -207,17 +218,23 @@ header {
 
             .search-open-button {
                 border: 1px solid rgba(28, 69, 139, 0.4);
-                font-size: 20px;
-                width: 45px;
-                height: 45px;
+                font-size: 18px;
+                width: 38px;
+                height: 38px;
+                @include media-up(md){
+                     font-size: 20px;
+                     width: 45px;
+                     height: 45px;
+                
+            }
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
                 transition: 0.4s;
                 border-radius: 12px;
-                margin-right: 9px;
-                margin-left: 13px;
+                margin-right:5px;
+                margin-left:5px;
                 color: $thirdColor;
                 position: relative; 
                
@@ -327,12 +344,238 @@ header {
 }
 }
 
+// header {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 75px;
+//     background: #080917;
+//     border-bottom: 5px solid #0E137A;
+//     z-index: 5000;
+// }
 
+// .navbar {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     height: 100%;
+// }
 
-.scrolled{
-    background-color: $thirdColor;
-    transition: 0.3s;
-}
+// /* Sol Alan */
+
+// .nav-left {
+//     display: flex;
+//     align-items: center;
+//     z-index: 10;
+// }
+
+// .menu-button {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+
+//     background: transparent;
+//     border: none;
+//     color: white;
+//     cursor: pointer;
+
+//     i {
+//         font-size: 24px;
+//     }
+
+//     span {
+//         font-size: 18px;
+//         font-weight: 700;
+//         font-family: Cairo;
+//     }
+
+//     &:hover {
+//         color: #D41B2C;
+//     }
+// }
+
+// /* Logo */
+
+// .fixed-header-logo {
+
+//     position: absolute;
+
+//     left: 50%;
+
+//     top: 50%;
+
+//     transform: translate(-50%, -50%);
+
+//     width: 180px;
+
+//     z-index: 5;
+
+//     img{
+//         width:100%;
+//         display:block;
+//     }
+// }
+
+// /* Sağ Alan */
+
+// .nav-right{
+
+//     display:flex;
+
+//     align-items:center;
+
+//     z-index:10;
+// }
+
+// .search-open-button{
+
+//     width:45px;
+
+//     height:45px;
+
+//     border-radius:12px;
+
+//     border:1px solid rgba(255,255,255,.3);
+
+//     background:transparent;
+
+//     color:white;
+
+//     cursor:pointer;
+
+//     display:flex;
+
+//     justify-content:center;
+
+//     align-items:center;
+
+//     transition:.3s;
+
+//     font-size:18px;
+
+//     &:hover{
+
+//         background:#D41B2C;
+
+//         border-color:#D41B2C;
+
+//     }
+// }
+
+// /* Tablet */
+
+// @media (max-width:768px){
+
+//     header{
+
+//         height:70px;
+
+//     }
+
+//     .fixed-header-logo{
+
+//         width:150px;
+
+//     }
+
+//     .menu-button{
+
+//         span{
+
+//             font-size:16px;
+
+//         }
+
+//         i{
+
+//             font-size:22px;
+
+//         }
+
+//     }
+
+// }
+
+// /* Telefon */
+
+// @media (max-width:480px){
+
+//     header{
+
+//         height:65px;
+
+//     }
+
+//     .fixed-header-logo{
+
+//         width:120px;
+
+//     }
+
+//     .menu-button{
+
+//         span{
+
+//             display:none;
+
+//         }
+
+//         i{
+
+//             font-size:22px;
+
+//         }
+
+//     }
+
+//     .search-open-button{
+
+//         width:38px;
+
+//         height:38px;
+
+//         font-size:16px;
+
+//     }
+
+// }
+
+// /* 320px */
+
+// @media (max-width:320px){
+
+//     .fixed-header-logo{
+
+//         width:105px;
+
+//     }
+
+//     .search-open-button{
+
+//         width:34px;
+
+//         height:34px;
+
+//     }
+
+//     .menu-button{
+
+//         i{
+
+//             font-size:20px;
+
+//         }
+
+//     }
+
+// }
+
+// .scrolled{
+//     background-color: $thirdColor;
+//     transition: 0.3s;
+// }
 
 
 ul {
@@ -343,4 +586,38 @@ ul {
         color: #fff;
     }
    }
+}
+
+
+@media (max-width: 320px) {
+
+    header{
+        min-height:60px;
+    }
+
+    header nav{
+        padding:0 10px;
+    }
+
+    .menu{
+        font-size:20px;
+    }
+
+    .mobile-nav-icon{
+        font-size:20px;
+        margin-right:5px;
+    }
+
+    .fixed-header-logo{
+        width:120px;
+        top:72px;
+    }
+
+    .button-group .search-open-button{
+        width:38px;
+        height:38px;
+        font-size:18px;
+        margin:0;
+    }
+
 }

@@ -60,6 +60,7 @@ img {
   color: #cf1720;
   text-align: center;
   font-family: Bricolage Grotesque;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
   position: relative;
@@ -166,7 +167,7 @@ footer .copyright {
 }
 .fixed-footer .relative-area {
   position: relative;
-  width: 100%;
+  width: 73%;
   height: 100%;
 }
 .fixed-footer .relative-area .img-absolute-footer {
@@ -179,7 +180,8 @@ footer .copyright {
 .fixed-footer .relative-area .img-absolute-footer img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .fixed-footer .relative-area .absolute-footer {
   width: 100%;
@@ -686,7 +688,8 @@ aside .mobile-menu .cta {
 .products .all-products .swiper-slide .card .image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: 0.3s;
 }
 .products .all-products .swiper-slide .card .info {
@@ -707,6 +710,7 @@ aside .mobile-menu .cta {
 .products .all-products .swiper-slide .card .info .card-header .category {
   display: flex;
   background-color: #01438f;
+  width: -moz-fit-content;
   width: fit-content;
   color: white;
   padding: 5px 15px;
@@ -735,6 +739,7 @@ aside .mobile-menu .cta {
 .products .buttons {
   display: flex;
   margin: auto;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .products .buttons .swiper-button-left {
@@ -856,8 +861,8 @@ aside .mobile-menu .cta {
 .section-divider .search-area {
   display: flex;
   position: absolute;
-  bottom: -100px;
-  left: 35px;
+  bottom: -200px;
+  left: 50px;
   width: 80%;
   margin-top: 70px;
 }
@@ -865,7 +870,7 @@ aside .mobile-menu .cta {
   .section-divider .search-area {
     margin-top: 70px;
     left: 50px;
-    bottom: -150px;
+    bottom: -250px;
   }
 }
 @media (min-width: 768px) {
@@ -927,30 +932,16 @@ aside .mobile-menu .cta {
 .about-section {
   position: relative;
   margin-bottom: 600px;
-  height: 370vh;
-}
-@media (min-width: 384px) {
-  .about-section {
-    height: 320vh;
-    margin-bottom: 500px;
-  }
-}
-@media (min-width: 468px) {
-  .about-section {
-    height: 320vh;
-    margin-bottom: 200px;
-  }
+  height: 270vh;
 }
 @media (min-width: 576px) {
   .about-section {
-    height: 300vh;
-    margin-bottom: 0;
+    height: 370vh;
   }
 }
 @media (min-width: 768px) {
   .about-section {
     height: 220vh;
-    margin-bottom: 250px;
   }
 }
 @media (min-width: 992px) {
@@ -1022,43 +1013,40 @@ aside .mobile-menu .cta {
 .testimonials {
   padding-top: 200px;
   padding-bottom: 100px;
-  width: 90%;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
 }
 .testimonials .testimonial-title {
   margin-top: 50px;
   font-family: Story Script;
   color: #0E137A;
+  width: -moz-fit-content;
   width: fit-content;
   rotate: -4deg;
   margin: auto;
   line-height: 38px;
   letter-spacing: 8px;
-  font-size: 18px;
-  text-align: center;
+  font-size: 25px;
 }
 @media (min-width: 768px) {
   .testimonials .testimonial-title {
-    font-size: 47px;
+    font-size: 57px;
   }
 }
 .testimonials .all-testimonial {
   display: grid;
-  padding: 10px 10px;
+  padding: 15px 50px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 50px;
+  gap: 30px;
 }
 .testimonials .all-testimonial .box {
   margin-top: 80px;
   position: relative;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .testimonials .all-testimonial .box:hover {
-  scale: 1.05;
+  scale: 1.07;
 }
 .testimonials .all-testimonial .box:hover .image {
-  width: 250px;
+  width: 280px;
   border-radius: 0;
   border: none;
 }
@@ -1066,8 +1054,8 @@ aside .mobile-menu .cta {
   width: 100%;
   scale: 1.07;
   height: 100%;
-  object-fit: cover;
-  transition: 0.5s;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .testimonials .all-testimonial .box .image {
   width: 180px;
@@ -1076,13 +1064,15 @@ aside .mobile-menu .cta {
   overflow: hidden;
   border-radius: 50%;
   border: 1px solid #0E137A;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .testimonials .all-testimonial .box .image img {
+  width: -moz-fit-content;
   width: fit-content;
   height: 100%;
-  transition: 0.5s;
-  object-fit: cover;
+  transition: 0.3s;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .testimonials .all-testimonial .box .box-info {
   background-color: white;
@@ -1146,27 +1136,10 @@ aside .mobile-menu .cta {
     height: 800px !important;
   }
 }
-
-.partrens {
-  width: 90%;
-  margin-inline-start: auto;
-  margin-inline-end:auto ;
-}
-
-.partrens .section-title {
-  font-size: 20px;
-}
-
-@media (min-width:768px) {
-  .partrens .section-title {
-  font-size: 40px;
-}
-}
-
 .partrens .logos {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 5px;
 }
 .partrens .logos .image {
@@ -1193,17 +1166,6 @@ aside .mobile-menu .cta {
 .blog {
   padding-top: 150px;
 }
-
-.blog .section-title {
-  font-size: 20px;
-}
-
-@media (min-width:768px) {
-  .blog .section-title {
-  font-size: 40px;
-}
-}
-
 .blog .all-blogs {
   margin-top: 50px;
   display: grid;
@@ -1228,7 +1190,8 @@ aside .mobile-menu .cta {
 .blog .all-blogs .blog-card .images img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .blog .all-blogs .blog-card .info {
   display: flex;
@@ -1372,7 +1335,8 @@ aside .mobile-menu .cta {
 }
 #gallery .carousel-items img {
   border-radius: 12px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1474,6 +1438,4 @@ aside .mobile-menu .cta {
 
 .timeline-line {
   --line-height: 0px;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
