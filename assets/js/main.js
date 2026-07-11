@@ -94,14 +94,14 @@ ScrollReveal().reveal('.about-paragraf-title', {
     easing: 'ease-in-out'
 
 });
-ScrollReveal().reveal('.card', {    
-    delay:750,
-    duration:1000,
-    distance:'50px',
-    origin:'bottom',
-    easing: 'ease-in-out'
+// ScrollReveal().reveal('.card', {    
+//     delay:750,
+//     duration:1000,
+//     distance:'50px',
+//     origin:'bottom',
+//     easing: 'ease-in-out'
 
-});
+// });
 ScrollReveal().reveal('.section-title', {    
   delay:350,
   duration:1000,
@@ -163,6 +163,10 @@ const swiper = new Swiper('.swiper', {
 
   breakpoints: {
     320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    480: {
       slidesPerView: 1,
       spaceBetween: 20,
     },

@@ -176,27 +176,26 @@
 }
 
 .about-section{
+    // margin-bottom: 600px;
+    // height: 270vh;
     
-    position: relative;
-    margin-bottom: 600px;
-    height: 270vh;
-    
-    @include media-up(sm) {
-        height: 370vh;
-    }
-    @include media-up(md) {
-        height: 220vh;
-    }
-    @include media-up(lg) {
-        height: 170vh;
-    }
-    padding-top: 350px;
-    @include media-up(md) {
-        padding-top: 150px
-    }
+    // @include media-up(sm) {
+    //     height: 370vh;
+    // }
+    // @include media-up(md) {
+    //     height: 220vh;
+    // }
+    // @include media-up(lg) {
+    //     height: 170vh;
+    // }
+    // padding-top: 350px;
+    // @include media-up(md) {
+    //     padding-top: 150px
+    // }
 
     .inner-about {
         text-align: center;
+      
         .image {
             
             display: flex;
@@ -528,18 +527,16 @@
 
 
 .partrens {
-   
+   height: auto;
 
     
   
     @include media-up(sm) {
-        padding-top: 150px ;
-        height: 800px !important;
+        padding-top: 100px ;
         
     }
     @include media-up(md) {
-        padding-top: 0px ;
-        height: 800px !important;
+
         
     }
    
@@ -1288,7 +1285,7 @@ $mainColor: #cf1720;
 $hoverColor: #0E137A;
 
 #gallery {
-    margin-bottom: 200px;
+margin-top: 100px;
  
     // .button {
     //     display: flex;
@@ -1317,32 +1314,32 @@ $hoverColor: #0E137A;
     // }
 
   .carousel-items {
-    height: 80vh;
+    height: auto;
 
-    @media(min-width:370px) {
-      height: 100vh;
-    }
-    @media(min-width:460px) {
-      height: 150vh;
-    }
-    @media(min-width:576px) {
-      height: 180vh;
-    }
-    @media(min-width:652px) {
-      height: 210vh;
-    }
-    @media(min-width:768px) {
-      height: 70vh;
-    }
-    @media(min-width:992px) {
-      height: 90vh;
-    }
-    @media(min-width:1024px) {
-      height: 100vh;
-    }
-    @media(min-width:1200px) {
-      height: 100vh;
-    }
+    // @media(min-width:370px) {
+    //   height: 100vh;
+    // }
+    // @media(min-width:460px) {
+    //   height: 150vh;
+    // }
+    // @media(min-width:576px) {
+    //   height: 180vh;
+    // }
+    // @media(min-width:652px) {
+    //   height: 210vh;
+    // }
+    // @media(min-width:768px) {
+    //   height: 70vh;
+    // }
+    // @media(min-width:992px) {
+    //   height: 90vh;
+    // }
+    // @media(min-width:1024px) {
+    //   height: 80vh;
+    // }
+    // @media(min-width:1200px) {
+    //   height: 100vh;
+    // }
 
     img {
       border-radius: 12px;

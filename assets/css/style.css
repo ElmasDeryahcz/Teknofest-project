@@ -769,6 +769,11 @@ aside .mobile-menu .cta {
 .products .buttons .swiper-button-right:hover {
   background-color: #01438f;
 }
+@media (max-width:768px) { 
+  .section-title {
+    font-size: 23px;
+  }
+}
 
 .hero-section {
   position: relative;
@@ -926,7 +931,8 @@ aside .mobile-menu .cta {
 
 .about-section {
   position: relative;
-  margin-bottom: 600px;
+  margin-bottom: 100px;
+  /* margin-bottom: 600px;
   height: 370vh;
 }
 @media (min-width: 384px) {
@@ -956,7 +962,7 @@ aside .mobile-menu .cta {
 @media (min-width: 992px) {
   .about-section {
     height: 170vh;
-  }
+  } */
 }
 .about-section {
   padding-top: 350px;
@@ -1020,8 +1026,8 @@ aside .mobile-menu .cta {
 }
 
 .testimonials {
+  padding-bottom: 200px;
   padding-top: 200px;
-  padding-bottom: 100px;
   width: 90%;
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -1136,14 +1142,13 @@ aside .mobile-menu .cta {
 
 @media (min-width: 576px) {
   .partrens {
-    padding-top: 150px;
-    height: 800px !important;
+    padding-top: 100px;
   }
 }
 @media (min-width: 768px) {
   .partrens {
     padding-top: 0px;
-    height: 800px !important;
+
   }
 }
 
