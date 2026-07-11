@@ -137,6 +137,7 @@ ScrollReveal().reveal('.footer-copyright ', {
 
 
 
+
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
@@ -158,26 +159,66 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },
 
-    // Responsive breakpoints
+
+
   breakpoints: {
-    // when window width is >= 320px
-  
-    // when window width is >= 480px
-    480: {
+    320: {
       slidesPerView: 1,
-      spaceBetween: 20
+      spaceBetween: 20,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 30,
     },
     768: {
-      slidesPerView: 2,
-      spaceBetween: 30
-    },
-    // when window width is >= 640px
-    1000: {
       slidesPerView: 3,
-      spaceBetween: 30
-    }
+      spaceBetween: 30,
+    },
   }
 });
+
+
+// const swiper = new Swiper('.swiper', {
+//   // Optional parameters
+//   direction: 'horizontal',
+//   loop: true,
+
+//   // If we need pagination
+//   pagination: {
+//     el: '.swiper-pagination',
+//   },
+
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-right',
+//     prevEl: '.swiper-button-left',
+//   },
+
+//   // And if we need scrollbar
+//   scrollbar: {
+//     el: '.swiper-scrollbar',
+//   },
+
+//     // Responsive breakpoints
+//   breakpoints: {
+//     // when window width is >= 320px
+  
+//     // when window width is >= 480px
+//     480: {
+//       slidesPerView: 1,
+//       spaceBetween: 20
+//     },
+//     768: {
+//       slidesPerView: 2,
+//       spaceBetween: 30
+//     },
+//     // when window width is >= 640px
+//     1000: {
+//       slidesPerView: 3,
+//       spaceBetween: 30
+//     }
+//   }
+// });
 
 
 
