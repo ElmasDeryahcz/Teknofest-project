@@ -932,37 +932,7 @@ aside .mobile-menu .cta {
 .about-section {
   position: relative;
   margin-bottom: 100px;
-  /* margin-bottom: 600px;
-  height: 370vh;
-}
-@media (min-width: 384px) {
-  .about-section {
-    height: 320vh;
-    margin-bottom: 500px;
-  }
-}
-@media (min-width: 468px) {
-  .about-section {
-    height: 320vh;
-    margin-bottom: 200px;
-  }
-}
-@media (min-width: 576px) {
-  .about-section {
-    height: 300vh;
-    margin-bottom: 0;
-  }
-}
-@media (min-width: 768px) {
-  .about-section {
-    height: 220vh;
-    margin-bottom: 250px;
-  }
-}
-@media (min-width: 992px) {
-  .about-section {
-    height: 170vh;
-  } */
+ 
 }
 .about-section {
   padding-top: 350px;
